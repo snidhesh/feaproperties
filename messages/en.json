@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "home": "Home",
+    "properties": "Properties",
+    "communities": "Communities",
+    "about": "About",
+    "insights": "Insights",
+    "contact": "Contact",
+    "scheduleViewing": "Schedule a viewing"
+  },
+  "home": {
+    "kicker": "Boutique real estate · Dubai · Since 2016",
+    "headlineStart": "Find the address that",
+    "headlineEm": "finds you",
+    "subheadline": "First home, next investment, or quiet exit — wherever you're heading in Dubai's property market, we'll help you get there.",
+    "ctaBrowse": "Browse properties",
+    "ctaSpeak": "Speak with Feleg",
+    "pillars": {
+      "buyKicker": "01 — Buy",
+      "buyTitle": "A home you'll love coming back to.",
+      "buyBody": "Hand-picked apartments, villas, and off-plan opportunities across Dubai's most coveted communities.",
+      "sellKicker": "02 — Sell",
+      "sellTitle": "Discreet, decisive, top-of-market.",
+      "sellBody": "Curated buyer networks, calibrated pricing, and the kind of attention boutique advisory uniquely offers.",
+      "rentKicker": "03 — Rent",
+      "rentTitle": "The right tenant for the right home.",
+      "rentBody": "Landlords and tenants matched with care — long-term residencies, executive lets, and serviced apartments."
+    },
+    "search": {
+      "kicker": "Begin your search",
+      "title": "What are you looking for?",
+      "subtitle": "Filter live inventory from across Dubai.",
+      "location": "Location",
+      "category": "Category",
+      "status": "Status",
+      "budget": "Budget (AED)",
+      "anyLocation": "Any community",
+      "any": "Any",
+      "submit": "Search"
+    },
+    "featured": {
+      "kicker": "Featured · Curated by Feleg",
+      "title": "Signature listings",
+      "viewAll": "View all",
+      "from": "From",
+      "onRequest": "Price on request"
+    },
+    "communities": {
+      "kicker": "Communities",
+      "title": "The neighbourhoods we know best.",
+      "subtitle": "From beachfront enclaves to the city's tallest addresses — these are the communities where FEA Properties places the majority of its clients.",
+      "activeListings": "{count, plural, =0 {No active listings} =1 {1 active listing} other {# active listings}}",
+      "swipeHint": "Swipe to explore"
+    },
+    "founder": {
+      "kicker": "Founder",
+      "name": "Feleg Abenker",
+      "body1": "A decade in Dubai real estate taught me one thing: the difference between a good investment and a great home is the conversation that surrounds it. I founded FEA Properties to make that conversation worth having.",
+      "body2": "From your first viewing to keys in hand — and every market shift in between — you'll work with someone who treats your decision as personally as you do.",
+      "stats": {
+        "years": "Years advising",
+        "communities": "Communities served",
+        "languages": "Languages"
+      },
+      "ctaConsult": "Schedule a consultation",
+      "ctaRead": "Read Feleg's story"
+    },
+    "concierge": {
+      "kicker": "Concierge",
+      "title": "A short conversation. A long-term partner.",
+      "body": "Drop us a line and we'll come back to you within the business day with options matched to your brief.",
+      "ctaWhatsapp": "WhatsApp Feleg",
+      "ctaCall": "Call",
+      "ctaMessage": "Send a message"
+    }
+  },
+  "properties": {
+    "pageTitle": "Properties",
+    "kicker": "Live inventory · synced from CRM",
+    "intro": "{count, plural, =0 {No active listings} =1 {1 active listing} other {# active listings}} across Dubai.",
+    "filters": {
+      "status": "Status",
+      "statusOffPlan": "Off-Plan",
+      "statusReady": "Ready",
+      "category": "Category",
+      "location": "Location",
+      "beds": "Beds",
+      "budget": "Budget (AED)",
+      "developer": "Developer",
+      "clearAll": "Clear all"
+    },
+    "view": {
+      "grid": "Grid",
+      "list": "List",
+      "map": "Map · soon"
+    },
+    "sortBy": "Sort by",
+    "sort": {
+      "recommended": "Recommended",
+      "priceAsc": "Price · Low to High",
+      "priceDesc": "Price · High to Low",
+      "newest": "Newest"
+    },
+    "card": {
+      "from": "From",
+      "onRequest": "On request"
+    },
+    "empty": {
+      "title": "No listings match those filters.",
+      "subtitle": "Clear filters or speak with us directly — much of our best inventory moves off-market.",
+      "cta": "Speak with Feleg"
+    }
+  },
+  "detail": {
+    "breadcrumb": {
+      "home": "Home",
+      "properties": "Properties"
+    },
+    "byDeveloper": "by {developer}",
+    "specs": {
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "area": "Area (sqft)",
+      "parking": "Parking",
+      "furnishing": "Furnishing",
+      "available": "Available from",
+      "reference": "Reference"
+    },
+    "overview": "Overview",
+    "amenities": "Amenities",
+    "location": "Location",
+    "staticMapCaption": "Community location — precise coordinates on request",
+    "sidebar": {
+      "startingFrom": "Starting from",
+      "onRequest": "Price on request",
+      "agentRole": "Listing agent",
+      "credentials": "BRN 42732 · ORN 29899",
+      "whatsapp": "WhatsApp",
+      "call": "Call",
+      "requestDetails": "Request details",
+      "requestTitle": "Get the full brochure & floor plans.",
+      "requestBody": "We reply within the business day. Your enquiry is added to our CRM and emailed straight to Feleg.",
+      "name": "Your name",
+      "email": "Email address",
+      "phone": "Phone (with country code)",
+      "message": "Anything we should know? (Budget, timeline, requirements…)",
+      "send": "Send enquiry",
+      "sourceLabel": "Source: property-inquiry"
+    },
+    "similar": "Similar listings"
+  },
+  "about": {
+    "pageTitle": "About",
+    "kicker": "Founder & CEO",
+    "credentials": {
+      "brn": "BRN",
+      "orn": "ORN",
+      "direct": "Direct line",
+      "languages": "Languages",
+      "languagesValue": "EN · AR · AM"
+    },
+    "story": {
+      "kicker": "The story",
+      "title": "Why a boutique, anyway?",
+      "body1": "The first half of my career was inside large brokerages — long lists, templated follow-ups. I learned the market there, and learned just as sharply what I didn't want to build.",
+      "body2": "FEA Properties exists for clients who'd rather have one phone number than ten. Who want a single advisor across rentals, off-plan investments, and resale exits. Boutique doesn't mean small — it means deliberate.",
+      "body3": "We're licensed, registered, and regulated under Dubai's RERA. The numbers we run will match yours; the contracts we draft will hold up. The conversation, more often than not, is the part you'll remember.",
+      "signature": "— Feleg"
+    },
+    "stats": {
+      "founded": "Founded",
+      "years": "Years advising",
+      "communities": "Communities served",
+      "transactions": "Transactions closed"
+    }
+  },
+  "contact": {
+    "pageTitle": "Contact",
+    "kicker": "Start a conversation",
+    "headlineStart": "Let's",
+    "headlineEm": "talk",
+    "intro": "Whether it's a quick question, a property tour, or a long-term advisory conversation — we're here. Most enquiries get a personal reply within the business day.",
+    "form": {
+      "kicker": "Send a message",
+      "title": "We'll be in touch shortly.",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone (with country code)",
+      "interestLabel": "I'm interested in",
+      "interest": {
+        "buying": "Buying a property",
+        "selling": "Selling a property",
+        "renting": "Renting",
+        "offplan": "Off-plan investment",
+        "management": "Property management",
+        "general": "General enquiry"
+      },
+      "messageLabel": "Your message",
+      "consent": "I consent to FEA Properties contacting me about my enquiry.",
+      "privacyLink": "Privacy policy",
+      "submit": "Send message",
+      "sourceLabel": "Source: contact-page",
+      "success": "Thanks — Feleg will be in touch shortly.",
+      "errorGeneric": "Something went wrong. Please try again or message us on WhatsApp."
+    },
+    "channels": {
+      "kicker": "Direct channels",
+      "title": "Prefer real-time?",
+      "whatsapp": "WhatsApp Feleg",
+      "office": "Office line",
+      "email": "Email"
+    },
+    "visit": {
+      "kicker": "Visit us",
+      "title": "Business Bay, Dubai",
+      "hours": "Sun – Thu · 9:00 – 18:00 GST",
+      "hoursWeekend": "Fri – Sat · By appointment"
+    },
+    "social": {
+      "kicker": "Follow",
+      "title": "Stay close."
+    }
+  },
+  "footer": {
+    "tagline": "Boutique real estate advisory in Dubai. Buy, sell, and rent with a team that treats the conversation as carefully as the contract.",
+    "newsletter": "Subscribe to our newsletter",
+    "newsletterSubmit": "Join",
+    "explore": "Explore",
+    "services": "Services",
+    "visit": "Visit",
+    "rights": "© {year} FEA Properties. RERA Broker BRN 42732 · ORN 29899.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageEN": "EN",
+    "languageAR": "عربي",
+    "viewMore": "View more",
+    "viewAll": "View all",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {n} of {total}"
+  },
+  "fallback": {
+    "englishTag": "(English)"
+  }
+}

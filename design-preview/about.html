@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Feleg Abenker, FEA Properties</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          ink: { 950:'#0A1235', 900:'#131B40', 800:'#1C2554', 700:'#26306B' },
+          ivory: { DEFAULT:'#F5F1E8', dim:'#D9D3C3' },
+          gold: { DEFAULT:'#C9A961', deep:'#8B6F3F' },
+          mute: '#6B6B73',
+        },
+        fontFamily: { display: ['Arsenal','serif'], sans: ['"Roboto Flex"','system-ui','sans-serif'] },
+        letterSpacing: { tightest: '-0.04em' },
+      }},
+    };
+  </script>
+  <style>
+    html, body { background:#0A1235; color:#F5F1E8; }
+    .hairline { border-color: rgba(245,241,232,.12); }
+    .scrim { background: linear-gradient(180deg, rgba(10,10,11,.2), rgba(10,10,11,.85)); }
+    .gold-rule { background: linear-gradient(90deg, transparent, #C9A961 50%, transparent); height:1px; }
+    #site-header { transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease; }
+    #site-header.is-scrolled {
+      background-color: rgba(19,27,64,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(245,241,232,.12);
+      box-shadow: 0 10px 30px -20px rgba(0,0,0,.6);
+    }
+    #mobile-menu { transition: opacity .25s ease; opacity: 0; pointer-events: none; }
+    #mobile-menu.open { opacity: 1; pointer-events: auto; }
+    #mobile-menu .drawer { transform: translateX(100%); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+    #mobile-menu.open .drawer { transform: translateX(0); }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 lg:px-12">
+      <a href="index.html" class="flex items-center">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-14 w-auto" />
+      </a>
+      <ul class="hidden items-center gap-10 text-xs uppercase tracking-[0.22em] text-ivory/80 lg:flex">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+        <li><a href="properties.html" class="hover:text-gold">Properties</a></li>
+        <li><a href="index.html#communities" class="hover:text-gold">Communities</a></li>
+        <li><a href="about.html" class="text-gold">About</a></li>
+        <li><a href="index.html#insights" class="hover:text-gold">Insights</a></li>
+        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-5">
+        <div class="hidden items-center gap-1 text-xs font-medium tracking-widest md:flex">
+          <a href="#" class="px-2 py-1 text-ivory">EN</a><span class="text-mute">/</span><a href="#" class="px-2 py-1 text-mute hover:text-ivory">عربي</a>
+        </div>
+        <a href="contact.html" class="hidden rounded-full border border-ivory/30 px-5 py-2 text-xs uppercase tracking-[0.2em] text-ivory hover:border-gold hover:text-gold md:block">Schedule a viewing</a>
+        <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div id="menu-backdrop" class="absolute inset-0 bg-ink-950/85 backdrop-blur-md"></div>
+    <aside class="drawer absolute inset-y-0 right-0 flex h-full w-[90%] max-w-sm flex-col bg-ink-900 px-7 py-7 shadow-2xl">
+      <div class="flex items-center justify-between">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+        <button id="menu-close" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold" aria-label="Close menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+      <nav class="mt-10 flex flex-col">
+        <a href="index.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Home</a>
+        <a href="properties.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Properties</a>
+        <a href="index.html#communities" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Communities</a>
+        <a href="about.html" class="border-b hairline py-4 font-display text-2xl text-gold">About</a>
+        <a href="index.html#insights" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Insights</a>
+        <a href="contact.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Contact</a>
+      </nav>
+      <div class="mt-8 flex items-center gap-1 text-xs font-medium tracking-widest">
+        <a href="index.html" class="px-3 py-1 text-ivory">EN</a>
+        <span class="text-mute">/</span>
+        <a href="index-ar.html" class="px-3 py-1 text-mute hover:text-ivory">عربي</a>
+      </div>
+      <div class="mt-auto space-y-3 border-t hairline pt-6 text-sm text-ivory/70">
+        <a href="tel:+97145469115" class="block hover:text-gold">+971 4 546 9115</a>
+        <a href="https://wa.me/971504280362" class="block hover:text-gold">WhatsApp Feleg · +971 50 428 0362</a>
+        <a href="mailto:info@feaproperties.ae" class="block hover:text-gold">info@feaproperties.ae</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative grid min-h-[80vh] grid-cols-1 lg:grid-cols-12">
+    <div class="relative lg:col-span-7">
+      <img src="Feleg%20Abenker.jpg" class="h-full max-h-[90vh] w-full object-cover object-[50%_20%]" alt="Feleg Abenker" />
+      <div class="scrim absolute inset-0"></div>
+    </div>
+    <div class="flex flex-col justify-end bg-ink-900 px-6 py-16 lg:col-span-5 lg:px-14 lg:py-24">
+      <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Founder & CEO</div>
+      <h1 class="mt-3 font-display text-6xl leading-[1.0] tracking-tightest text-ivory lg:text-7xl">Feleg <span class="italic">Abenker</span>.</h1>
+      <div class="gold-rule mt-6 w-24"></div>
+      <p class="mt-7 max-w-md text-lg leading-relaxed text-ivory/80">
+        A decade in Dubai real estate. A boutique by design. A standard of care that scales with intention, not headcount.
+      </p>
+      <dl class="mt-10 grid grid-cols-2 gap-x-4 gap-y-5 border-t hairline pt-8 text-sm">
+        <div><dt class="text-[10px] uppercase tracking-[0.3em] text-mute">BRN</dt><dd class="mt-1 font-display text-2xl text-ivory">42732</dd></div>
+        <div><dt class="text-[10px] uppercase tracking-[0.3em] text-mute">ORN</dt><dd class="mt-1 font-display text-2xl text-ivory">29899</dd></div>
+        <div><dt class="text-[10px] uppercase tracking-[0.3em] text-mute">Direct line</dt><dd class="mt-1 text-ivory">+971 50 428 0362</dd></div>
+        <div><dt class="text-[10px] uppercase tracking-[0.3em] text-mute">Languages</dt><dd class="mt-1 text-ivory">EN · AR · AM</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="bg-ink-950 px-6 py-28 lg:px-12">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-[11px] uppercase tracking-[0.4em] text-gold">The story</div>
+      <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory">Why a boutique, anyway?</h2>
+      <div class="gold-rule mt-6 w-24"></div>
+      <div class="mt-10 space-y-6 text-lg leading-relaxed text-ivory/80">
+        <p>I spent the first half of my career inside large brokerages — the kind where lists are long and follow-ups are templated. I learned the market there. I also learned, sharply, what I didn't want to build.</p>
+        <p>FEA Properties exists for clients who'd rather have one phone number than ten. Who want a single advisor across rentals, off-plan investments, and resale exits. Who appreciate that boutique doesn't mean small — it means deliberate.</p>
+        <p>We're licensed, registered, and regulated under Dubai's RERA. The numbers we run will match yours; the contracts we draft will hold up. And the conversation, more often than not, will be the part you remember.</p>
+        <p class="text-ivory">— Feleg</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="border-y hairline bg-ink-900 px-6 py-20 lg:px-12">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-2 gap-12 lg:grid-cols-4">
+      <div><div class="text-[10px] uppercase tracking-[0.3em] text-gold">Founded</div><div class="mt-3 font-display text-5xl text-ivory">2016</div></div>
+      <div><div class="text-[10px] uppercase tracking-[0.3em] text-gold">Years advising</div><div class="mt-3 font-display text-5xl text-ivory">10+</div></div>
+      <div><div class="text-[10px] uppercase tracking-[0.3em] text-gold">Communities served</div><div class="mt-3 font-display text-5xl text-ivory">22</div></div>
+      <div><div class="text-[10px] uppercase tracking-[0.3em] text-gold">Transactions closed</div><div class="mt-3 font-display text-5xl text-ivory">340+</div></div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="bg-ink-950 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="max-w-2xl">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">How we work</div>
+        <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory">Quiet, deliberate, in your corner.</h2>
+        <div class="gold-rule mt-6 w-24"></div>
+      </div>
+      <div class="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm border hairline bg-ivory/10 md:grid-cols-3">
+        <div class="bg-ink-900 p-10">
+          <div class="font-display text-6xl text-gold">01</div>
+          <h3 class="mt-4 font-display text-2xl text-ivory">Brief</h3>
+          <p class="mt-3 text-sm text-ivory/65">We open with the conversation — not the catalogue. Your lifestyle, timeline, exit plan, and tax position all shape what gets shown.</p>
+        </div>
+        <div class="bg-ink-900 p-10">
+          <div class="font-display text-6xl text-gold">02</div>
+          <h3 class="mt-4 font-display text-2xl text-ivory">Curate</h3>
+          <p class="mt-3 text-sm text-ivory/65">A shortlist — six to ten, never sixty. Each option is annotated: yield, resale outlook, community trajectory, hidden caveats.</p>
+        </div>
+        <div class="bg-ink-900 p-10">
+          <div class="font-display text-6xl text-gold">03</div>
+          <h3 class="mt-4 font-display text-2xl text-ivory">Close</h3>
+          <p class="mt-3 text-sm text-ivory/65">Negotiation, DLD registration, escrow, handover — handled. After move-in, we stay in your corner for the life of the asset.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="bg-ink-900 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Trusted by · partnered with</div>
+      <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory">Where you'll also see us.</h2>
+      <div class="gold-rule mt-6 w-24"></div>
+      <div class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-sm border hairline bg-ivory/10 md:grid-cols-3 lg:grid-cols-6">
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Property<span class="text-gold">Finder</span></div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Bayut</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Dubizzle</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Emaar</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Meraas</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Nakheel</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Damac</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Sobha</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Select</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Ellington</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Binghatti</div></div>
+        <div class="bg-ink-950 px-8 py-12 text-center"><div class="font-display text-3xl text-ivory">Azizi</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-ink-950 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="max-w-2xl">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">In their words</div>
+        <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory">What clients say.</h2>
+      </div>
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <p class="font-display text-2xl leading-snug text-ivory">"Feleg asked questions no other agent thought to ask. The home found us — through her."</p>
+          <footer class="mt-7 text-sm">
+            <div class="text-ivory">Elise D.</div>
+            <div class="text-mute">Buyer · Al Barari Community</div>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <p class="font-display text-2xl leading-snug text-ivory">"Two off-plan units and a resale. The numbers add up; the service is rare."</p>
+          <footer class="mt-7 text-sm">
+            <div class="text-ivory">Max O.</div>
+            <div class="text-mute">Buyer / Investor · District One, Meydan</div>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <p class="font-display text-2xl leading-snug text-ivory">"Handled my Address Marina purchase from three time zones away. Calm, professional, quick."</p>
+          <footer class="mt-7 text-sm">
+            <div class="text-ivory">Raj</div>
+            <div class="text-mute">Buyer · Address Dubai Marina</div>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <p class="font-display text-2xl leading-snug text-ivory">"Rented through FEA. Renewed without thinking twice. Honest, easy, clear."</p>
+          <footer class="mt-7 text-sm">
+            <div class="text-ivory">Ayan M.</div>
+            <div class="text-mute">Tenant · D1 Tower</div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden bg-ink-900 px-6 py-28 lg:px-12">
+    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80" class="absolute inset-0 h-full w-full object-cover opacity-25" alt="" />
+    <div class="absolute inset-0 bg-gradient-to-b from-ink-900/40 to-ink-900"></div>
+    <div class="relative mx-auto max-w-3xl text-center">
+      <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Begin</div>
+      <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">A short conversation, on your terms.</h2>
+      <p class="mt-6 text-ivory/70">Send a note and Feleg will reply personally within the business day.</p>
+      <a href="contact.html" class="mt-10 inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 hover:bg-ivory">
+        Start a conversation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- COMPACT FOOTER -->
+  <footer class="border-t hairline bg-ink-950 px-6 py-12 lg:px-12">
+    <div class="mx-auto flex max-w-[1500px] flex-col items-start justify-between gap-6 text-xs text-mute md:flex-row md:items-center">
+      <a href="index.html" class="inline-block">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+      </a>
+      <div>© 2026 FEA Properties · RERA BRN 42732 · ORN 29899</div>
+      <div class="flex items-center gap-5">
+        <a href="contact.html" class="hover:text-gold">Contact</a>
+        <a href="about.html" class="hover:text-gold">About</a>
+        <a href="#" class="hover:text-gold">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971504280362" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-ink-950 shadow-xl shadow-black/40 hover:scale-105">
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 0 1 .066 11.86C.07 5.337 5.396.011 11.92.011a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.416c-.003 6.524-5.327 11.85-11.853 11.85a11.9 11.9 0 0 1-5.696-1.452L.057 24z"/></svg>
+  </a>
+
+  <script>
+    (function () {
+      var header = document.getElementById('site-header');
+      if (header) {
+        var toggle = function () {
+          if (window.scrollY > 24) header.classList.add('is-scrolled');
+          else header.classList.remove('is-scrolled');
+        };
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+      }
+      var btn = document.getElementById('menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var closeBtn = document.getElementById('menu-close');
+      var backdrop = document.getElementById('menu-backdrop');
+      if (!btn || !menu) return;
+      var open = function () { menu.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; };
+      var close = function () { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+      btn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FEA Properties — Boutique Real Estate, Dubai</title>
+  <meta name="description" content="Boutique Dubai real estate. Off-plan investments, ready homes, and trusted advisory from FEA Properties." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { 950: '#0A1235', 900: '#131B40', 800: '#1C2554', 700: '#26306B' },
+            ivory: { DEFAULT: '#F5F1E8', dim: '#D9D3C3' },
+            gold: { DEFAULT: '#C9A961', deep: '#8B6F3F' },
+            mute: '#6B6B73',
+          },
+          fontFamily: {
+            display: ['Arsenal', 'serif'],
+            sans: ['"Roboto Flex"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { tightest: '-0.04em' },
+        },
+      },
+    };
+  </script>
+  <style>
+    html, body { background:#0A1235; color:#F5F1E8; }
+    .grain::before {
+      content:""; position:absolute; inset:0; pointer-events:none; opacity:.08;
+      background-image: radial-gradient(rgba(255,255,255,.6) 1px, transparent 1px);
+      background-size: 3px 3px; mix-blend-mode: overlay;
+    }
+    .scrim {
+      background: linear-gradient(180deg, rgba(10,10,11,.2) 0%, rgba(10,10,11,.45) 40%, rgba(10,10,11,.95) 100%);
+    }
+    .scrim-top {
+      background: linear-gradient(180deg, rgba(10,10,11,.7) 0%, rgba(10,10,11,0) 30%);
+    }
+    .hairline { border-color: rgba(245,241,232,.12); }
+    .gold-rule { background: linear-gradient(90deg, transparent, #C9A961 50%, transparent); height:1px; }
+    .ticker { animation: ticker 40s linear infinite; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-mask { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    #site-header { transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease; }
+    #site-header.is-scrolled {
+      background-color: rgba(19,27,64,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(245,241,232,.12);
+      box-shadow: 0 10px 30px -20px rgba(0,0,0,.6);
+    }
+    #site-header.is-scrolled .scrim-top { opacity: 0; }
+    .scrim-top { transition: opacity .35s ease; }
+    /* Mobile drawer */
+    #mobile-menu { transition: opacity .25s ease; opacity: 0; pointer-events: none; }
+    #mobile-menu.open { opacity: 1; pointer-events: auto; }
+    #mobile-menu .drawer { transform: translateX(100%); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+    #mobile-menu.open .drawer { transform: translateX(0); }
+    /* Hide scrollbar on horizontal rails (postcards) */
+    .communities-rail { scrollbar-width: none; -ms-overflow-style: none; scroll-padding-inline: 1.5rem; }
+    .communities-rail::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold selection:text-ink-950">
+
+  <!-- ============ HEADER ============ -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50">
+    <div class="scrim-top absolute inset-x-0 -top-2 h-28"></div>
+    <nav class="relative mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 lg:px-12">
+      <a href="index.html" class="flex items-center">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-14 w-auto" />
+      </a>
+      <ul class="hidden items-center gap-10 text-xs uppercase tracking-[0.22em] text-ivory/80 lg:flex">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+        <li><a href="properties.html" class="hover:text-gold">Properties</a></li>
+        <li><a href="#communities" class="hover:text-gold">Communities</a></li>
+        <li><a href="about.html" class="hover:text-gold">About</a></li>
+        <li><a href="#insights" class="hover:text-gold">Insights</a></li>
+        <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-5">
+        <div class="hidden items-center gap-1 text-xs font-medium tracking-widest md:flex">
+          <a href="#" class="px-2 py-1 text-ivory">EN</a>
+          <span class="text-mute">/</span>
+          <a href="#" class="px-2 py-1 text-mute hover:text-ivory">عربي</a>
+        </div>
+        <a href="contact.html" class="hidden rounded-full border border-ivory/30 px-5 py-2 text-xs uppercase tracking-[0.2em] text-ivory transition hover:border-gold hover:text-gold md:block">
+          Schedule a viewing
+        </a>
+        <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ MOBILE DRAWER ============ -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div id="menu-backdrop" class="absolute inset-0 bg-ink-950/85 backdrop-blur-md"></div>
+    <aside class="drawer absolute inset-y-0 right-0 flex h-full w-[90%] max-w-sm flex-col bg-ink-900 px-7 py-7 shadow-2xl">
+      <div class="flex items-center justify-between">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+        <button id="menu-close" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold" aria-label="Close menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+      <nav class="mt-10 flex flex-col">
+        <a href="index.html" class="border-b hairline py-4 font-display text-2xl text-gold">Home</a>
+        <a href="properties.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Properties</a>
+        <a href="#communities" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Communities</a>
+        <a href="about.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">About</a>
+        <a href="#insights" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Insights</a>
+        <a href="contact.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Contact</a>
+      </nav>
+      <div class="mt-8 flex items-center gap-1 text-xs font-medium tracking-widest">
+        <a href="index.html" class="px-3 py-1 text-ivory">EN</a>
+        <span class="text-mute">/</span>
+        <a href="index-ar.html" class="px-3 py-1 text-mute hover:text-ivory">عربي</a>
+      </div>
+      <div class="mt-auto space-y-3 border-t hairline pt-6 text-sm text-ivory/70">
+        <a href="tel:+97145469115" class="block hover:text-gold">+971 4 546 9115</a>
+        <a href="https://wa.me/971504280362" class="block hover:text-gold">WhatsApp Feleg · +971 50 428 0362</a>
+        <a href="mailto:info@feaproperties.ae" class="block hover:text-gold">info@feaproperties.ae</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="relative h-screen min-h-[760px] w-full overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=80"
+         alt="Dubai skyline at dusk"
+         class="absolute inset-0 h-full w-full object-cover" />
+    <div class="scrim absolute inset-0"></div>
+    <div class="grain absolute inset-0"></div>
+
+    <div class="relative z-10 mx-auto flex h-full max-w-[1500px] flex-col justify-end px-6 pb-24 lg:px-12 lg:pb-32">
+      <div class="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-gold">
+        <span class="h-px w-10 bg-gold"></span>
+        Boutique real estate · Dubai · Since 2016
+      </div>
+      <h1 class="max-w-5xl font-display text-[clamp(2.6rem,7.5vw,7.5rem)] font-400 leading-[0.95] tracking-tightest text-ivory">
+        Find the address that <em class="italic text-gold">finds you</em>.
+      </h1>
+      <p class="mt-8 max-w-xl text-base leading-relaxed text-ivory/80 lg:text-lg">
+        First home, next investment, or quiet exit — wherever you're heading in Dubai's property market, we'll help you get there.
+      </p>
+      <div class="mt-12 flex flex-wrap items-center gap-4">
+        <a href="properties.html" class="inline-flex items-center gap-3 rounded-full bg-ivory px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 transition hover:bg-gold">
+          Browse properties
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#concierge" class="inline-flex items-center gap-3 rounded-full border border-ivory/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ivory transition hover:border-gold hover:text-gold">
+          Speak with Feleg
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll cue + service pillars over hero -->
+    <div class="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-[10px] uppercase tracking-[0.5em] text-ivory/50">
+      Scroll
+    </div>
+  </section>
+
+  <!-- ============ 2. PROMISE STRIP / SERVICE PILLARS ============ -->
+  <section class="border-y hairline bg-ink-900">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-1 divide-y divide-ivory/10 px-6 py-12 md:grid-cols-3 md:divide-y-0 md:divide-x lg:px-12">
+      <div class="px-2 py-6 md:px-10">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">01 — Buy</div>
+        <h3 class="mt-3 font-display text-3xl leading-tight text-ivory">A home you'll love coming back to.</h3>
+        <p class="mt-3 text-sm text-ivory/60">Hand-picked apartments, villas, and off-plan opportunities across Dubai's most coveted communities.</p>
+      </div>
+      <div class="px-2 py-6 md:px-10">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">02 — Sell</div>
+        <h3 class="mt-3 font-display text-3xl leading-tight text-ivory">Discreet, decisive, top-of-market.</h3>
+        <p class="mt-3 text-sm text-ivory/60">Curated buyer networks, calibrated pricing, and the kind of attention boutique advisory uniquely offers.</p>
+      </div>
+      <div class="px-2 py-6 md:px-10">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">03 — Rent</div>
+        <h3 class="mt-3 font-display text-3xl leading-tight text-ivory">The right tenant for the right home.</h3>
+        <p class="mt-3 text-sm text-ivory/60">Landlords and tenants matched with care — long-term residencies, executive lets, and serviced apartments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. SEARCH ENTRY ============ -->
+  <section class="bg-ink-950 px-6 py-20 lg:px-12 lg:py-28">
+    <div class="mx-auto max-w-5xl text-center">
+      <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Begin your search</div>
+      <h2 class="mt-4 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">
+        What are you looking for?
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-ivory/60">Filter live inventory from across Dubai. Refine by community, type, budget, and readiness.</p>
+
+      <form class="mt-12 grid grid-cols-1 gap-3 rounded-2xl border hairline bg-ink-900 p-4 md:grid-cols-[1.6fr_1fr_1fr_1fr_auto]">
+        <label class="flex flex-col items-start gap-1 rounded-xl bg-ink-800 px-4 py-3 text-left">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Location</span>
+          <select class="w-full bg-transparent text-ivory focus:outline-none">
+            <option>Any community</option>
+            <option>Palm Jumeirah</option>
+            <option>Downtown Dubai</option>
+            <option>Dubai Marina</option>
+            <option>Meydan</option>
+            <option>Dubai Creek Harbour</option>
+            <option>Dubai Islands</option>
+          </select>
+        </label>
+        <label class="flex flex-col items-start gap-1 rounded-xl bg-ink-800 px-4 py-3 text-left">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Category</span>
+          <select class="w-full bg-transparent text-ivory focus:outline-none">
+            <option>Any</option><option>Apartment</option><option>Villa</option><option>Townhouse</option><option>Hotel Apartment</option>
+          </select>
+        </label>
+        <label class="flex flex-col items-start gap-1 rounded-xl bg-ink-800 px-4 py-3 text-left">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Status</span>
+          <select class="w-full bg-transparent text-ivory focus:outline-none">
+            <option>Any</option><option>Off-Plan</option><option>Completed</option>
+          </select>
+        </label>
+        <label class="flex flex-col items-start gap-1 rounded-xl bg-ink-800 px-4 py-3 text-left">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Budget (AED)</span>
+          <select class="w-full bg-transparent text-ivory focus:outline-none">
+            <option>Any</option><option>< 5.5M</option><option>5.5M – 15M</option><option>15M – 30M</option><option>30M – 45.5M</option><option>45.5M+</option>
+          </select>
+        </label>
+        <button type="button" class="rounded-xl bg-gold px-7 py-3 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 transition hover:bg-ivory">
+          Search
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 4. FEATURED PROPERTIES ============ -->
+  <section class="bg-ink-950 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="flex items-end justify-between border-b hairline pb-8">
+        <div>
+          <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Featured · Curated by Feleg</div>
+          <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">Signature listings</h2>
+        </div>
+        <a href="properties.html" class="hidden items-center gap-2 text-sm uppercase tracking-[0.2em] text-ivory/70 hover:text-gold md:flex">
+          View all <span>→</span>
+        </a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-12">
+        <!-- Large card -->
+        <article class="group lg:col-span-7">
+          <a href="property-detail.html" class="block">
+            <div class="relative aspect-[5/4] overflow-hidden rounded-sm">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Chevalia Estate" />
+              <span class="absolute left-5 top-5 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur">Off-Plan</span>
+            </div>
+            <div class="mt-6 flex items-start justify-between gap-6">
+              <div>
+                <div class="text-[11px] uppercase tracking-[0.3em] text-mute">Grand Polo Club &amp; Resort</div>
+                <h3 class="mt-2 font-display text-4xl leading-tight tracking-tightest text-ivory">Chevalia Estate</h3>
+                <p class="mt-2 text-sm text-ivory/60">4–5 Bed Villas · 4,168 – 8,635 sqft</p>
+              </div>
+              <div class="text-right">
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">From</div>
+                <div class="font-display text-2xl text-gold">AED 12.5M</div>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Two stacked -->
+        <div class="flex flex-col gap-12 lg:col-span-5">
+          <article class="group">
+            <a href="property-detail.html" class="block">
+              <div class="relative aspect-[5/4] overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="The Acres" />
+                <span class="absolute left-4 top-4 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur">Off-Plan</span>
+              </div>
+              <div class="mt-4 flex items-start justify-between gap-4">
+                <div>
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">Dubai Land</div>
+                  <h3 class="mt-1 font-display text-2xl tracking-tightest text-ivory">The Acres by Meraas</h3>
+                  <p class="mt-1 text-xs text-ivory/55">3–5 Bed Villa · 3,085 – 6,000 sqft</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">From</div>
+                  <div class="font-display text-xl text-gold">AED 5.8M</div>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="property-detail.html" class="block">
+              <div class="relative aspect-[5/4] overflow-hidden rounded-sm">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Valo" />
+                <span class="absolute left-4 top-4 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur">Off-Plan</span>
+              </div>
+              <div class="mt-4 flex items-start justify-between gap-4">
+                <div>
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">Dubai Creek Harbour</div>
+                  <h3 class="mt-1 font-display text-2xl tracking-tightest text-ivory">Valo</h3>
+                  <p class="mt-1 text-xs text-ivory/55">1–3 Bed Apartment · 752 – 2,048 sqft</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">From</div>
+                  <div class="font-display text-xl text-gold">AED 1.9M</div>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. COMMUNITIES GRID ============ -->
+  <section id="communities" class="bg-ink-900 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="max-w-3xl">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Communities</div>
+        <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">
+          The neighbourhoods we know best.
+        </h2>
+        <p class="mt-5 text-ivory/60">From beachfront enclaves to the city's tallest addresses — these are the communities where FEA Properties places the majority of its clients.</p>
+      </div>
+
+      <!-- Mobile: horizontal snap-scroll postcards · sm+: 2-col grid · lg+: 3-col grid -->
+      <div class="communities-rail mt-14 -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-3 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
+        <a href="properties.html" class="group relative aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink">
+          <img src="https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Palm Jumeirah" />
+          <div class="scrim absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 p-7">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Iconic</div>
+            <div class="mt-2 font-display text-3xl text-ivory">Palm Jumeirah</div>
+            <div class="mt-1 text-xs text-ivory/60">42 active listings</div>
+          </div>
+        </a>
+        <a href="properties.html" class="group relative aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink">
+          <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Downtown" />
+          <div class="scrim absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 p-7">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Skyline</div>
+            <div class="mt-2 font-display text-3xl text-ivory">Downtown Dubai</div>
+            <div class="mt-1 text-xs text-ivory/60">36 active listings</div>
+          </div>
+        </a>
+        <a href="properties.html" class="group relative aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink">
+          <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Dubai Marina" />
+          <div class="scrim absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 p-7">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Waterfront</div>
+            <div class="mt-2 font-display text-3xl text-ivory">Dubai Marina</div>
+            <div class="mt-1 text-xs text-ivory/60">28 active listings</div>
+          </div>
+        </a>
+        <a href="properties.html" class="group relative aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink">
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Meydan" />
+          <div class="scrim absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 p-7">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Garden estate</div>
+            <div class="mt-2 font-display text-3xl text-ivory">Meydan</div>
+            <div class="mt-1 text-xs text-ivory/60">19 active listings</div>
+          </div>
+        </a>
+        <a href="properties.html" class="group relative aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink">
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Emaar South" />
+          <div class="scrim absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 p-7">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Emerging</div>
+            <div class="mt-2 font-display text-3xl text-ivory">Emaar South</div>
+            <div class="mt-1 text-xs text-ivory/60">14 active listings</div>
+          </div>
+        </a>
+        <a href="properties.html" class="group relative aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="Dubai Islands" />
+          <div class="scrim absolute inset-0"></div>
+          <div class="absolute inset-x-0 bottom-0 p-7">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">New shores</div>
+            <div class="mt-2 font-display text-3xl text-ivory">Dubai Islands</div>
+            <div class="mt-1 text-xs text-ivory/60">11 active listings</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobile-only swipe hint + pagination dots -->
+      <div class="mt-4 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.3em] text-mute sm:hidden">
+        <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        Swipe to explore
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. FOUNDER SECTION ============ -->
+  <section class="bg-ink-950 px-6 py-28 lg:px-12">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <div class="relative">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+          <img src="Feleg%20Abenker.jpg" class="h-full w-full object-cover object-[50%_15%]" alt="Feleg Abenker" />
+        </div>
+        <div class="absolute -bottom-6 -right-6 hidden rounded-sm bg-ink-900 px-7 py-5 ring-1 ring-gold/30 lg:block">
+          <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Credentials</div>
+          <div class="mt-2 flex gap-6 text-sm">
+            <div><div class="text-mute">BRN</div><div class="text-ivory">42732</div></div>
+            <div><div class="text-mute">ORN</div><div class="text-ivory">29899</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Founder</div>
+        <h2 class="mt-3 font-display text-5xl leading-[1.05] tracking-tightest text-ivory lg:text-6xl">
+          Feleg Abenker
+        </h2>
+        <div class="gold-rule mt-8 w-24"></div>
+        <p class="mt-8 text-lg leading-relaxed text-ivory/75">
+          A decade in Dubai real estate taught me one thing: the difference between a good investment and a great home is the conversation that surrounds it. I founded FEA Properties to make that conversation worth having.
+        </p>
+        <p class="mt-5 text-ivory/60">
+          From your first viewing to keys in hand — and every market shift in between — you'll work with someone who treats your decision as personally as you do.
+        </p>
+
+        <dl class="mt-12 grid grid-cols-3 gap-6 border-y hairline py-8">
+          <div>
+            <dt class="text-[10px] uppercase tracking-[0.3em] text-mute">Years advising</dt>
+            <dd class="mt-2 font-display text-3xl text-ivory">10+</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] uppercase tracking-[0.3em] text-mute">Communities served</dt>
+            <dd class="mt-2 font-display text-3xl text-ivory">22</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] uppercase tracking-[0.3em] text-mute">Languages</dt>
+            <dd class="mt-2 font-display text-3xl text-ivory">3</dd>
+          </div>
+        </dl>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="contact.html" class="inline-flex items-center gap-3 rounded-full bg-gold px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 transition hover:bg-ivory">Schedule a consultation</a>
+          <a href="about.html" class="inline-flex items-center gap-3 rounded-full border border-ivory/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ivory transition hover:border-gold hover:text-gold">Read Feleg's story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. INSIGHTS ============ -->
+  <section id="insights" class="bg-ink-900 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="flex items-end justify-between border-b hairline pb-8">
+        <div>
+          <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Insights</div>
+          <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">Market notes</h2>
+        </div>
+        <a href="#" class="hidden items-center gap-2 text-sm uppercase tracking-[0.2em] text-ivory/70 hover:text-gold md:flex">All insights <span>→</span></a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+        <article class="group">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <img src="https://images.unsplash.com/photo-1620207418302-439b387441b0?auto=format&fit=crop&w=1200&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="" />
+          </div>
+          <div class="mt-5">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Policy · 3 Feb 2024</div>
+            <h3 class="mt-3 font-display text-2xl leading-snug text-ivory group-hover:text-gold">Golden Visa: what changed in 2024 and who qualifies now</h3>
+            <p class="mt-3 text-sm text-ivory/55">The threshold dropped, the property mix expanded, and three new categories opened. Here's how to read the new rules as an investor.</p>
+          </div>
+        </article>
+        <article class="group">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="" />
+          </div>
+          <div class="mt-5">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Guide · 6 Jul 2023</div>
+            <h3 class="mt-3 font-display text-2xl leading-snug text-ivory group-hover:text-gold">The buyer's guide to off-plan Dubai</h3>
+            <p class="mt-3 text-sm text-ivory/55">From SPA milestones to escrow law and resale windows — the checklist we walk every first-time off-plan buyer through.</p>
+          </div>
+        </article>
+        <article class="group">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="" />
+          </div>
+          <div class="mt-5">
+            <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Tax · 27 May 2023</div>
+            <h3 class="mt-3 font-display text-2xl leading-snug text-ivory group-hover:text-gold">UAE corporate tax: what real estate investors need to know</h3>
+            <p class="mt-3 text-sm text-ivory/55">Free zone vs mainland exposure, qualifying activities, and how the new regime treats rental yield and capital gains.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. TESTIMONIALS ============ -->
+  <section class="relative overflow-hidden bg-ink-950 px-6 py-28 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="max-w-2xl">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Client stories</div>
+        <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">In their own words.</h2>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <svg class="h-8 w-8 text-gold/80" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7H5a4 4 0 0 0-4 4v8h8v-8H5a4 4 0 0 1 4-4V7zm12 0h-4a4 4 0 0 0-4 4v8h8v-8h-4a4 4 0 0 1 4-4V7z"/></svg>
+          <p class="mt-5 font-display text-2xl leading-snug text-ivory">"FEA found us a home, not just a property. Feleg asked questions no other agent thought to ask."</p>
+          <footer class="mt-7 flex items-center gap-3 text-sm">
+            <span class="h-9 w-9 rounded-full bg-gold/30"></span>
+            <div>
+              <div class="text-ivory">Elise D.</div>
+              <div class="text-mute">Buyer · Al Barari Community</div>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <svg class="h-8 w-8 text-gold/80" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7H5a4 4 0 0 0-4 4v8h8v-8H5a4 4 0 0 1 4-4V7zm12 0h-4a4 4 0 0 0-4 4v8h8v-8h-4a4 4 0 0 1 4-4V7z"/></svg>
+          <p class="mt-5 font-display text-2xl leading-snug text-ivory">"Closed two units off-plan and a resale through Feleg. The numbers always add up; the service is rare."</p>
+          <footer class="mt-7 flex items-center gap-3 text-sm">
+            <span class="h-9 w-9 rounded-full bg-gold/30"></span>
+            <div>
+              <div class="text-ivory">Max O.</div>
+              <div class="text-mute">Buyer / Investor · District One, Meydan</div>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <svg class="h-8 w-8 text-gold/80" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7H5a4 4 0 0 0-4 4v8h8v-8H5a4 4 0 0 1 4-4V7zm12 0h-4a4 4 0 0 0-4 4v8h8v-8h-4a4 4 0 0 1 4-4V7z"/></svg>
+          <p class="mt-5 font-display text-2xl leading-snug text-ivory">"They handled my Address Marina purchase from across three time zones. Calm, professional, and quick."</p>
+          <footer class="mt-7 flex items-center gap-3 text-sm">
+            <span class="h-9 w-9 rounded-full bg-gold/30"></span>
+            <div>
+              <div class="text-ivory">Raj</div>
+              <div class="text-mute">Buyer · Address Dubai Marina</div>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="rounded-sm border hairline bg-ink-900 p-10">
+          <svg class="h-8 w-8 text-gold/80" viewBox="0 0 24 24" fill="currentColor"><path d="M9 7H5a4 4 0 0 0-4 4v8h8v-8H5a4 4 0 0 1 4-4V7zm12 0h-4a4 4 0 0 0-4 4v8h8v-8h-4a4 4 0 0 1 4-4V7z"/></svg>
+          <p class="mt-5 font-display text-2xl leading-snug text-ivory">"I rented through FEA last year. Renewed without thinking twice. Clear, honest, and easy."</p>
+          <footer class="mt-7 flex items-center gap-3 text-sm">
+            <span class="h-9 w-9 rounded-full bg-gold/30"></span>
+            <div>
+              <div class="text-ivory">Ayan M.</div>
+              <div class="text-mute">Tenant · D1 Tower</div>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. CONCIERGE CTA ============ -->
+  <section id="concierge" class="relative overflow-hidden bg-ink-900 px-6 py-24 lg:px-12">
+    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80" class="absolute inset-0 h-full w-full object-cover opacity-25" alt="" />
+    <div class="scrim absolute inset-0"></div>
+    <div class="relative mx-auto max-w-3xl text-center">
+      <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Concierge</div>
+      <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">
+        A short conversation. A long-term partner.
+      </h2>
+      <p class="mt-6 text-ivory/70">Drop us a line and we'll come back to you within the business day with options matched to your brief.</p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="https://wa.me/971504280362" class="inline-flex items-center gap-3 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 transition hover:bg-ivory">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 0 1 .066 11.86C.07 5.337 5.396.011 11.92.011a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.416c-.003 6.524-5.327 11.85-11.853 11.85a11.9 11.9 0 0 1-5.696-1.452L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.9 9.9 0 0 0 1.515 5.26L4.41 19.4l3.244-.851z"/></svg>
+          WhatsApp Feleg
+        </a>
+        <a href="tel:+971501937584" class="inline-flex items-center gap-3 rounded-full bg-ivory px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 transition hover:bg-gold">
+          Call +971 50 193 7584
+        </a>
+        <a href="contact.html" class="inline-flex items-center gap-3 rounded-full border border-ivory/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ivory transition hover:border-gold hover:text-gold">
+          Send a message
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. PARTNER MARQUEE ============ -->
+  <section class="border-y hairline bg-ink-950 py-8">
+    <div class="marquee-mask overflow-hidden">
+      <div class="ticker flex w-max gap-16 px-10 text-xs uppercase tracking-[0.4em] text-mute">
+        <span>RERA Certified</span><span>·</span>
+        <span>Dubai Land Department</span><span>·</span>
+        <span>Property Finder Partner</span><span>·</span>
+        <span>Bayut Partner</span><span>·</span>
+        <span>Dubizzle Partner</span><span>·</span>
+        <span>Emaar · Damac · Meraas · Sobha · Nakheel</span><span>·</span>
+        <span>RERA Certified</span><span>·</span>
+        <span>Dubai Land Department</span><span>·</span>
+        <span>Property Finder Partner</span><span>·</span>
+        <span>Bayut Partner</span><span>·</span>
+        <span>Dubizzle Partner</span><span>·</span>
+        <span>Emaar · Damac · Meraas · Sobha · Nakheel</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-ink-950 px-6 pb-12 pt-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="grid grid-cols-1 gap-12 border-b hairline pb-16 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <a href="index.html" class="inline-block">
+            <img src="logo_basic.png" alt="FEA Properties" class="h-20 w-auto" />
+          </a>
+          <p class="mt-6 max-w-md text-ivory/60">Boutique real estate advisory in Dubai. Buy, sell, and rent with a team that treats the conversation as carefully as the contract.</p>
+
+          <form class="mt-10 flex max-w-md gap-2 rounded-full border hairline bg-ink-900 p-1.5">
+            <input type="email" placeholder="Subscribe to our newsletter" class="flex-1 bg-transparent px-4 py-2 text-sm text-ivory placeholder:text-mute focus:outline-none" />
+            <button type="button" class="rounded-full bg-gold px-5 py-2 text-xs uppercase tracking-[0.18em] text-ink-950 transition hover:bg-ivory">Join</button>
+          </form>
+
+          <div class="mt-8 flex items-center gap-4 text-ivory/70">
+            <a href="#" aria-label="Instagram" class="hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.82-1.26-.38-.38-.75-.62-1.26-.82-.39-.15-.97-.33-2.04-.38-1.24-.06-1.59-.07-4.74-.07zm0 2.76A5.46 5.46 0 1 1 12 17.46 5.46 5.46 0 0 1 12 6.54zm0 1.62a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68zm5.65-2.99a1.27 1.27 0 1 1-2.54 0 1.27 1.27 0 0 1 2.54 0z"/></svg></a>
+            <a href="#" aria-label="LinkedIn" class="hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73a1.74 1.74 0 1 1 0-3.48 1.74 1.74 0 0 1 0 3.48zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77c1.4-2.58 7-2.77 7 2.47V19z"/></svg></a>
+            <a href="#" aria-label="Facebook" class="hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+            <a href="https://wa.me/971504280362" aria-label="WhatsApp" class="hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 0 1 .066 11.86C.07 5.337 5.396.011 11.92.011a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.416c-.003 6.524-5.327 11.85-11.853 11.85a11.9 11.9 0 0 1-5.696-1.452L.057 24z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Explore</div>
+          <ul class="mt-5 space-y-3 text-sm text-ivory/70">
+            <li><a href="properties.html" class="hover:text-gold">Properties</a></li>
+            <li><a href="#communities" class="hover:text-gold">Communities</a></li>
+            <li><a href="about.html" class="hover:text-gold">About</a></li>
+            <li><a href="#insights" class="hover:text-gold">Insights</a></li>
+            <li><a href="contact.html" class="hover:text-gold">Contact</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Services</div>
+          <ul class="mt-5 space-y-3 text-sm text-ivory/70">
+            <li><a href="#" class="hover:text-gold">Buy</a></li>
+            <li><a href="#" class="hover:text-gold">Sell</a></li>
+            <li><a href="#" class="hover:text-gold">Rent</a></li>
+            <li><a href="#" class="hover:text-gold">Off-Plan</a></li>
+            <li><a href="#" class="hover:text-gold">Property Management</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="text-[10px] uppercase tracking-[0.4em] text-gold">Visit</div>
+          <address class="mt-5 not-italic text-sm leading-relaxed text-ivory/70">
+            FEA Properties<br />
+            3301 Prime Tower<br />
+            Marasi Drive, Business Bay<br />
+            Dubai, United Arab Emirates<br /><br />
+            <a href="tel:+97145469115" class="hover:text-gold">+971 4 546 9115</a><br />
+            <a href="tel:+971504280362" class="hover:text-gold">+971 50 428 0362</a><br />
+            <a href="mailto:info@feaproperties.ae" class="hover:text-gold">info@feaproperties.ae</a>
+          </address>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-start justify-between gap-4 pt-8 text-xs text-mute md:flex-row md:items-center">
+        <div>© 2026 FEA Properties. RERA Broker BRN 42732 · ORN 29899.</div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-gold">Privacy</a>
+          <a href="#" class="hover:text-gold">Terms</a>
+          <div class="flex items-center gap-1 text-mute">
+            <a href="#" class="text-ivory">EN</a><span>/</span><a href="#" class="hover:text-ivory">عربي</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/971504280362" class="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-ink-950 shadow-xl shadow-black/40 transition hover:scale-105">
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 0 1 .066 11.86C.07 5.337 5.396.011 11.92.011a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.416c-.003 6.524-5.327 11.85-11.853 11.85a11.9 11.9 0 0 1-5.696-1.452L.057 24z"/></svg>
+  </a>
+
+  <script>
+    (function () {
+      var header = document.getElementById('site-header');
+      if (header) {
+        var toggle = function () {
+          if (window.scrollY > 24) header.classList.add('is-scrolled');
+          else header.classList.remove('is-scrolled');
+        };
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+      }
+
+      var btn = document.getElementById('menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var closeBtn = document.getElementById('menu-close');
+      var backdrop = document.getElementById('menu-backdrop');
+      if (!btn || !menu) return;
+      var open = function () {
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      };
+      var close = function () {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+      btn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — FEA Properties</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Flex:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          ink: { 950:'#0A1235', 900:'#131B40', 800:'#1C2554', 700:'#26306B' },
+          ivory: { DEFAULT:'#F5F1E8', dim:'#D9D3C3' },
+          gold: { DEFAULT:'#C9A961', deep:'#8B6F3F' },
+          mute: '#6B6B73',
+        },
+        fontFamily: { display: ['Arsenal','serif'], sans: ['"Roboto Flex"','system-ui','sans-serif'] },
+        letterSpacing: { tightest: '-0.04em' },
+      }},
+    };
+  </script>
+  <style>
+    html, body { background:#0A1235; color:#F5F1E8; }
+    .hairline { border-color: rgba(245,241,232,.12); }
+    .gold-rule { background: linear-gradient(90deg, transparent, #C9A961 50%, transparent); height:1px; }
+    #mobile-menu { transition: opacity .25s ease; opacity: 0; pointer-events: none; }
+    #mobile-menu.open { opacity: 1; pointer-events: auto; }
+    #mobile-menu .drawer { transform: translateX(100%); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+    #mobile-menu.open .drawer { transform: translateX(0); }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b hairline bg-ink-900/88 shadow-[0_10px_30px_-20px_rgba(0,0,0,.6)] backdrop-blur-md">
+    <nav class="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 lg:px-12">
+      <a href="index.html" class="flex items-center">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-14 w-auto" />
+      </a>
+      <ul class="hidden items-center gap-10 text-xs uppercase tracking-[0.22em] text-ivory/80 lg:flex">
+        <li><a href="index.html" class="hover:text-gold">Home</a></li>
+        <li><a href="properties.html" class="hover:text-gold">Properties</a></li>
+        <li><a href="index.html#communities" class="hover:text-gold">Communities</a></li>
+        <li><a href="about.html" class="hover:text-gold">About</a></li>
+        <li><a href="index.html#insights" class="hover:text-gold">Insights</a></li>
+        <li><a href="contact.html" class="text-gold">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-5">
+        <div class="hidden items-center gap-1 text-xs font-medium tracking-widest md:flex">
+          <a href="#" class="px-2 py-1 text-ivory">EN</a><span class="text-mute">/</span><a href="#" class="px-2 py-1 text-mute hover:text-ivory">عربي</a>
+        </div>
+        <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Main navigation">
+    <div id="menu-backdrop" class="absolute inset-0 bg-ink-950/85 backdrop-blur-md"></div>
+    <aside class="drawer absolute inset-y-0 right-0 flex h-full w-[90%] max-w-sm flex-col bg-ink-900 px-7 py-7 shadow-2xl">
+      <div class="flex items-center justify-between">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+        <button id="menu-close" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold" aria-label="Close menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+      <nav class="mt-10 flex flex-col">
+        <a href="index.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Home</a>
+        <a href="properties.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Properties</a>
+        <a href="index.html#communities" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Communities</a>
+        <a href="about.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">About</a>
+        <a href="index.html#insights" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">Insights</a>
+        <a href="contact.html" class="border-b hairline py-4 font-display text-2xl text-gold">Contact</a>
+      </nav>
+      <div class="mt-8 flex items-center gap-1 text-xs font-medium tracking-widest">
+        <a href="index.html" class="px-3 py-1 text-ivory">EN</a>
+        <span class="text-mute">/</span>
+        <a href="index-ar.html" class="px-3 py-1 text-mute hover:text-ivory">عربي</a>
+      </div>
+      <div class="mt-auto space-y-3 border-t hairline pt-6 text-sm text-ivory/70">
+        <a href="tel:+97145469115" class="block hover:text-gold">+971 4 546 9115</a>
+        <a href="https://wa.me/971504280362" class="block hover:text-gold">WhatsApp Feleg · +971 50 428 0362</a>
+        <a href="mailto:info@feaproperties.ae" class="block hover:text-gold">info@feaproperties.ae</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- HERO -->
+  <section class="px-6 py-20 lg:px-12 lg:py-28">
+    <div class="mx-auto max-w-[1500px]">
+      <nav class="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-mute">
+        <a href="index.html" class="hover:text-gold">Home</a> <span>/</span> <span class="text-ivory/80">Contact</span>
+      </nav>
+      <div class="mt-8 max-w-3xl">
+        <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Start a conversation</div>
+        <h1 class="mt-4 font-display text-6xl leading-[1.0] tracking-tightest text-ivory lg:text-8xl">Let's <em class="italic text-gold">talk</em>.</h1>
+        <p class="mt-7 max-w-xl text-lg leading-relaxed text-ivory/70">
+          Whether it's a quick question, a property tour, or a long-term advisory conversation — we're here. Most enquiries get a personal reply within the business day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO COLUMN -->
+  <section class="px-6 pb-24 lg:px-12">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 lg:grid-cols-12">
+
+      <!-- LEFT — FORM -->
+      <div class="lg:col-span-7">
+        <form class="rounded-sm border hairline bg-ink-900 p-10">
+          <div class="flex items-center gap-3">
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-gold text-ink-950">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/></svg>
+            </span>
+            <div>
+              <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Send a message</div>
+              <h2 class="font-display text-2xl text-ivory">We'll be in touch shortly.</h2>
+            </div>
+          </div>
+          <div class="gold-rule mt-6"></div>
+
+          <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <label class="flex flex-col gap-2">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-mute">First name</span>
+              <input type="text" class="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none" placeholder="Maya" />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Last name</span>
+              <input type="text" class="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none" placeholder="Sharma" />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Email</span>
+              <input type="email" class="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none" placeholder="maya@example.com" />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Phone (with country code)</span>
+              <input type="tel" class="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none" placeholder="+971 50 ..." />
+            </label>
+            <label class="flex flex-col gap-2 sm:col-span-2">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-mute">I'm interested in</span>
+              <select class="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none">
+                <option>Buying a property</option>
+                <option>Selling a property</option>
+                <option>Renting</option>
+                <option>Off-plan investment</option>
+                <option>Property management</option>
+                <option>General enquiry</option>
+              </select>
+            </label>
+            <label class="flex flex-col gap-2 sm:col-span-2">
+              <span class="text-[10px] uppercase tracking-[0.3em] text-mute">Your message</span>
+              <textarea rows="5" class="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none" placeholder="Tell us a little about what you're looking for — community, budget, timeline…"></textarea>
+            </label>
+            <label class="flex items-start gap-3 sm:col-span-2">
+              <input type="checkbox" class="mt-1 h-4 w-4 rounded border hairline bg-ink-800 accent-gold" />
+              <span class="text-xs text-ivory/60">I consent to FEA Properties contacting me about my enquiry. <a href="#" class="text-gold hover:underline">Privacy policy</a>.</span>
+            </label>
+          </div>
+
+          <button type="button" class="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 hover:bg-ivory sm:w-auto">
+            Send message
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <p class="mt-4 text-[10px] uppercase tracking-[0.25em] text-mute">Source: contact-page · routed to FEA CRM</p>
+        </form>
+      </div>
+
+      <!-- RIGHT — INFO -->
+      <aside class="lg:col-span-5">
+        <div class="space-y-5">
+
+          <!-- DIRECT CHANNELS -->
+          <div class="rounded-sm border hairline bg-ink-900 p-8">
+            <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Direct channels</div>
+            <h3 class="mt-2 font-display text-2xl text-ivory">Prefer real-time?</h3>
+            <ul class="mt-6 space-y-4">
+              <li class="flex items-center gap-4">
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-[#25D366]/15 text-[#25D366]">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 0 1 .066 11.86C.07 5.337 5.396.011 11.92.011a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.416c-.003 6.524-5.327 11.85-11.853 11.85a11.9 11.9 0 0 1-5.696-1.452L.057 24z"/></svg>
+                </span>
+                <div class="flex-1">
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">WhatsApp Feleg</div>
+                  <a href="https://wa.me/971504280362" class="text-ivory hover:text-gold">+971 50 428 0362</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-gold/15 text-gold">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <div class="flex-1">
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">Office line</div>
+                  <a href="tel:+97145469115" class="text-ivory hover:text-gold">+971 4 546 9115</a>
+                </div>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-gold/15 text-gold">
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                </span>
+                <div class="flex-1">
+                  <div class="text-[10px] uppercase tracking-[0.3em] text-mute">Email</div>
+                  <a href="mailto:info@feaproperties.ae" class="text-ivory hover:text-gold">info@feaproperties.ae</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- VISIT -->
+          <div class="rounded-sm border hairline bg-ink-900 p-8">
+            <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Visit us</div>
+            <h3 class="mt-2 font-display text-2xl text-ivory">Business Bay, Dubai</h3>
+            <address class="mt-4 not-italic text-sm leading-relaxed text-ivory/70">
+              FEA Properties<br />
+              3301 Prime Tower<br />
+              Marasi Drive, Business Bay<br />
+              Dubai, United Arab Emirates<br /><br />
+              Sun – Thu · 9:00 – 18:00 GST<br />
+              Fri – Sat · By appointment
+            </address>
+            <div class="relative mt-6 aspect-[16/9] overflow-hidden rounded-sm border hairline">
+              <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1200&q=80" class="h-full w-full object-cover opacity-80 saturate-50" alt="Map of Business Bay" />
+              <div class="absolute inset-0 grid place-items-center">
+                <div class="flex flex-col items-center">
+                  <span class="grid h-9 w-9 place-items-center rounded-full bg-gold text-ink-950 shadow-2xl shadow-black/50">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12z"/></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOCIAL -->
+          <div class="rounded-sm border hairline bg-ink-900 p-8">
+            <div class="text-[11px] uppercase tracking-[0.4em] text-gold">Follow</div>
+            <h3 class="mt-2 font-display text-2xl text-ivory">Stay close.</h3>
+            <div class="mt-5 flex items-center gap-3">
+              <a href="https://instagram.com/" aria-label="Instagram" class="grid h-11 w-11 place-items-center rounded-full border hairline text-ivory hover:border-gold hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9a3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 4.38a5.46 5.46 0 1 0 0 10.92 5.46 5.46 0 0 0 0-10.92zm0 1.62a3.84 3.84 0 1 1 0 7.68 3.84 3.84 0 0 1 0-7.68zm5.65-1.99a1.27 1.27 0 1 1-2.54 0 1.27 1.27 0 0 1 2.54 0z"/></svg></a>
+              <a href="https://linkedin.com/company/feaproperties/" aria-label="LinkedIn" class="grid h-11 w-11 place-items-center rounded-full border hairline text-ivory hover:border-gold hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73a1.74 1.74 0 1 1 0-3.48 1.74 1.74 0 0 1 0 3.48zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77c1.4-2.58 7-2.77 7 2.47V19z"/></svg></a>
+              <a href="https://facebook.com/Feaprop" aria-label="Facebook" class="grid h-11 w-11 place-items-center rounded-full border hairline text-ivory hover:border-gold hover:text-gold"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- COMPACT FOOTER -->
+  <footer class="border-t hairline bg-ink-950 px-6 py-12 lg:px-12">
+    <div class="mx-auto flex max-w-[1500px] flex-col items-start justify-between gap-6 text-xs text-mute md:flex-row md:items-center">
+      <a href="index.html" class="inline-block">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+      </a>
+      <div>© 2026 FEA Properties · RERA BRN 42732 · ORN 29899</div>
+      <div class="flex items-center gap-5">
+        <a href="contact.html" class="hover:text-gold">Contact</a>
+        <a href="about.html" class="hover:text-gold">About</a>
+        <a href="#" class="hover:text-gold">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var closeBtn = document.getElementById('menu-close');
+      var backdrop = document.getElementById('menu-backdrop');
+      if (!btn || !menu) return;
+      var open = function () { menu.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; };
+      var close = function () { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+      btn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+
+</body>
+</html>

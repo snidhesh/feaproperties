@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FEA Properties — عقارات بوتيكية في دبي</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Roboto+Flex:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          ink: { 950:'#0A1235', 900:'#131B40', 800:'#1C2554', 700:'#26306B' },
+          ivory: { DEFAULT:'#F5F1E8', dim:'#D9D3C3' },
+          gold: { DEFAULT:'#C9A961', deep:'#8B6F3F' },
+          mute: '#6B6B73',
+        },
+        fontFamily: {
+          display: ['"El Messiri"','Arsenal','serif'],
+          sans: ['"IBM Plex Sans Arabic"','"Roboto Flex"','system-ui','sans-serif'],
+        },
+        letterSpacing: { tightest: '-0.04em' },
+      }},
+    };
+  </script>
+  <style>
+    html, body { background:#0A1235; color:#F5F1E8; }
+    .hairline { border-color: rgba(245,241,232,.12); }
+    .scrim { background: linear-gradient(180deg, rgba(10,10,11,.2) 0%, rgba(10,10,11,.45) 40%, rgba(10,10,11,.95) 100%); }
+    .gold-rule { background: linear-gradient(90deg, transparent, #C9A961 50%, transparent); height:1px; }
+    #site-header { transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease; }
+    #site-header.is-scrolled {
+      background-color: rgba(19,27,64,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(245,241,232,.12);
+      box-shadow: 0 10px 30px -20px rgba(0,0,0,.6);
+    }
+    /* RTL drawer slides from the left */
+    #mobile-menu { transition: opacity .25s ease; opacity: 0; pointer-events: none; }
+    #mobile-menu.open { opacity: 1; pointer-events: auto; }
+    #mobile-menu .drawer { transform: translateX(-100%); transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+    #mobile-menu.open .drawer { transform: translateX(0); }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- BILINGUAL BANNER (preview only) -->
+  <div class="bg-gold/15 px-6 py-2 text-center text-[10px] uppercase tracking-[0.3em] text-gold lg:px-12">
+    معاينة عربية (RTL) — Arabic RTL preview ·
+    <a href="index.html" class="underline">العودة إلى النسخة الإنجليزية</a>
+  </div>
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed inset-x-0 top-7 z-50">
+    <nav class="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 lg:px-12">
+      <a href="index-ar.html" class="flex items-center">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-14 w-auto" />
+      </a>
+      <ul class="hidden items-center gap-10 text-xs uppercase tracking-[0.18em] text-ivory/80 lg:flex">
+        <li><a href="index-ar.html" class="hover:text-gold">الرئيسية</a></li>
+        <li><a href="properties.html" class="hover:text-gold">العقارات</a></li>
+        <li><a href="#" class="hover:text-gold">المجتمعات</a></li>
+        <li><a href="about.html" class="hover:text-gold">عن الشركة</a></li>
+        <li><a href="#" class="hover:text-gold">المدونة</a></li>
+        <li><a href="contact.html" class="hover:text-gold">تواصل</a></li>
+      </ul>
+      <div class="flex items-center gap-5">
+        <div class="hidden items-center gap-1 text-xs font-medium tracking-widest md:flex">
+          <a href="index.html" class="px-2 py-1 text-mute hover:text-ivory">EN</a>
+          <span class="text-mute">/</span>
+          <a href="index-ar.html" class="px-2 py-1 text-ivory">عربي</a>
+        </div>
+        <a href="contact.html" class="hidden rounded-full border border-ivory/30 px-5 py-2 text-xs uppercase tracking-[0.18em] text-ivory hover:border-gold hover:text-gold md:block">احجز موعد معاينة</a>
+        <button id="menu-btn" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold lg:hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE DRAWER (RTL — slides from left) -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="التنقل الرئيسي">
+    <div id="menu-backdrop" class="absolute inset-0 bg-ink-950/85 backdrop-blur-md"></div>
+    <aside class="drawer absolute inset-y-0 left-0 flex h-full w-[90%] max-w-sm flex-col bg-ink-900 px-7 py-7 shadow-2xl">
+      <div class="flex items-center justify-between">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+        <button id="menu-close" type="button" class="grid h-10 w-10 place-items-center rounded-full text-ivory hover:text-gold" aria-label="إغلاق القائمة">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+      </div>
+      <nav class="mt-10 flex flex-col">
+        <a href="index-ar.html" class="border-b hairline py-4 font-display text-2xl text-gold">الرئيسية</a>
+        <a href="properties.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">العقارات</a>
+        <a href="#" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">المجتمعات</a>
+        <a href="about.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">عن الشركة</a>
+        <a href="#" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">المدونة</a>
+        <a href="contact.html" class="border-b hairline py-4 font-display text-2xl text-ivory hover:text-gold">تواصل</a>
+      </nav>
+      <div class="mt-8 flex items-center gap-1 text-xs font-medium tracking-widest">
+        <a href="index.html" class="px-3 py-1 text-mute hover:text-ivory">EN</a>
+        <span class="text-mute">/</span>
+        <a href="index-ar.html" class="px-3 py-1 text-ivory">عربي</a>
+      </div>
+      <div class="mt-auto space-y-3 border-t hairline pt-6 text-sm text-ivory/70">
+        <a href="tel:+97145469115" class="block hover:text-gold" dir="ltr">+971 4 546 9115</a>
+        <a href="https://wa.me/971504280362" class="block hover:text-gold">واتساب فيلج · <span dir="ltr">+971 50 428 0362</span></a>
+        <a href="mailto:info@feaproperties.ae" class="block hover:text-gold" dir="ltr">info@feaproperties.ae</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative h-screen min-h-[720px] w-full overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=80" class="absolute inset-0 h-full w-full object-cover" alt="" />
+    <div class="scrim absolute inset-0"></div>
+
+    <div class="relative z-10 mx-auto flex h-full max-w-[1500px] flex-col justify-end px-6 pb-24 lg:px-12 lg:pb-32">
+      <div class="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-gold">
+        <span class="h-px w-10 bg-gold"></span>
+        عقارات بوتيكية · دبي · منذ 2016
+      </div>
+      <h1 class="max-w-5xl font-display text-[clamp(2.6rem,7vw,7rem)] font-400 leading-[1.05] tracking-tightest text-ivory">
+        ابحث عن العنوان الذي <em class="italic text-gold">يبحث عنك</em>.
+      </h1>
+      <p class="mt-8 max-w-xl text-base leading-relaxed text-ivory/80 lg:text-lg">
+        سواء كنت تبحث عن أول منزل لك، أو تضيف إلى محفظتك الاستثمارية، أو تخرج من السوق — نحن نساعدك على الوصول إلى ما تطمح إليه بدقة وراحة بال.
+      </p>
+      <div class="mt-12 flex flex-wrap items-center gap-4">
+        <a href="properties.html" class="inline-flex items-center gap-3 rounded-full bg-ivory px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 hover:bg-gold">
+          تصفح العقارات
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="rotate-180"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="contact.html" class="inline-flex items-center gap-3 rounded-full border border-ivory/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ivory hover:border-gold hover:text-gold">
+          تحدث مع فيلج
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE PILLARS -->
+  <section class="border-y hairline bg-ink-900">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-1 divide-y divide-ivory/10 px-6 py-12 md:grid-cols-3 md:divide-y-0 md:divide-x lg:px-12">
+      <div class="px-2 py-6 md:px-10">
+        <div class="text-[11px] uppercase tracking-[0.3em] text-gold">01 — شراء</div>
+        <h3 class="mt-3 font-display text-3xl leading-tight text-ivory">منزل تعشق العودة إليه.</h3>
+        <p class="mt-3 text-sm text-ivory/60">شقق وفلل ومشاريع على الخريطة منتقاة بعناية، عبر أرقى مجتمعات دبي.</p>
+      </div>
+      <div class="px-2 py-6 md:px-10">
+        <div class="text-[11px] uppercase tracking-[0.3em] text-gold">02 — بيع</div>
+        <h3 class="mt-3 font-display text-3xl leading-tight text-ivory">بهدوء وحسم وأعلى عائد.</h3>
+        <p class="mt-3 text-sm text-ivory/60">شبكة مشترين منتقاة، تسعير محسوب، واهتمام شخصي لا تجده إلا في الاستشارة البوتيكية.</p>
+      </div>
+      <div class="px-2 py-6 md:px-10">
+        <div class="text-[11px] uppercase tracking-[0.3em] text-gold">03 — إيجار</div>
+        <h3 class="mt-3 font-display text-3xl leading-tight text-ivory">المستأجر المناسب للمنزل المناسب.</h3>
+        <p class="mt-3 text-sm text-ivory/60">ملاك ومستأجرون نوفّق بينهم بعناية — سكن طويل الأمد، إقامة تنفيذية، أو شقق مفروشة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="bg-ink-950 px-6 py-24 lg:px-12">
+    <div class="mx-auto max-w-[1500px]">
+      <div class="flex items-end justify-between border-b hairline pb-8">
+        <div>
+          <div class="text-[11px] uppercase tracking-[0.3em] text-gold">منتقاة من فيلج</div>
+          <h2 class="mt-3 font-display text-5xl leading-tight tracking-tightest text-ivory lg:text-6xl">عقارات مميزة</h2>
+        </div>
+        <a href="properties.html" class="hidden items-center gap-2 text-sm uppercase tracking-[0.18em] text-ivory/70 hover:text-gold md:flex">
+          عرض الكل <span>←</span>
+        </a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+        <article class="group">
+          <a href="property-detail.html" class="block">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+              <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="" />
+              <span class="absolute right-4 top-4 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur">على الخريطة</span>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">نخلة جميرا</div>
+                <h3 class="mt-1 font-display text-2xl text-ivory">Como Residences</h3>
+                <p class="mt-1 text-xs text-ivory/55">2–6 غرف · 4,469 – 16,192 قدم²</p>
+              </div>
+              <div class="text-left">
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">يبدأ من</div>
+                <div class="font-display text-xl text-gold">23.5 مليون درهم</div>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="group">
+          <a href="property-detail.html" class="block">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="" />
+              <span class="absolute right-4 top-4 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur">على الخريطة</span>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">دبي لاند</div>
+                <h3 class="mt-1 font-display text-2xl text-ivory">The Acres by Meraas</h3>
+                <p class="mt-1 text-xs text-ivory/55">فلل 3–5 غرف · 3,085 – 6,000 قدم²</p>
+              </div>
+              <div class="text-left">
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">يبدأ من</div>
+                <div class="font-display text-xl text-gold">5.8 مليون درهم</div>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="group">
+          <a href="property-detail.html" class="block">
+            <div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" alt="" />
+              <span class="absolute right-4 top-4 rounded-full bg-ink-950/70 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-gold backdrop-blur">على الخريطة</span>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">مرسى خور دبي</div>
+                <h3 class="mt-1 font-display text-2xl text-ivory">Valo</h3>
+                <p class="mt-1 text-xs text-ivory/55">شقق 1–3 غرف · 752 – 2,048 قدم²</p>
+              </div>
+              <div class="text-left">
+                <div class="text-[10px] uppercase tracking-[0.3em] text-mute">يبدأ من</div>
+                <div class="font-display text-xl text-gold">1.9 مليون درهم</div>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="bg-ink-900 px-6 py-28 lg:px-12">
+    <div class="mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.3em] text-gold">المؤسِّسة</div>
+        <h2 class="mt-3 font-display text-5xl leading-[1.05] tracking-tightest text-ivory lg:text-6xl">فيلج أبنكر</h2>
+        <div class="gold-rule mt-8 w-24"></div>
+        <p class="mt-8 text-lg leading-relaxed text-ivory/80">
+          عشر سنوات في عقارات دبي علّمتني أن الفرق بين استثمار جيد ومنزل عظيم هو الحوار الذي يحيط به. أسّستُ FEA Properties لأجعل هذا الحوار يستحق أن يُخاض.
+        </p>
+        <p class="mt-5 text-ivory/60">
+          من أول معاينة حتى تسلّم المفاتيح — ستعمل مع شخص يتعامل مع قرارك بنفس الجدية التي تتعامل بها أنت.
+        </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="contact.html" class="inline-flex items-center gap-3 rounded-full bg-gold px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 hover:bg-ivory">احجز جلسة استشارية</a>
+          <a href="about.html" class="inline-flex items-center gap-3 rounded-full border border-ivory/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.18em] text-ivory hover:border-gold hover:text-gold">اقرأ قصة فيلج</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-sm">
+          <img src="Feleg%20Abenker.jpg" class="h-full w-full object-cover object-[50%_15%]" alt="Feleg Abenker" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPACT FOOTER -->
+  <footer class="border-t hairline bg-ink-950 px-6 py-12 lg:px-12">
+    <div class="mx-auto flex max-w-[1500px] flex-col items-start justify-between gap-6 text-xs text-mute md:flex-row md:items-center">
+      <a href="index-ar.html" class="inline-block">
+        <img src="logo_basic.png" alt="FEA Properties" class="h-10 w-auto" />
+      </a>
+      <div>© 2026 FEA Properties · رقم وسيط 42732 · رقم مؤسسة 29899</div>
+      <div class="flex items-center gap-5">
+        <a href="contact.html" class="hover:text-gold">تواصل</a>
+        <a href="about.html" class="hover:text-gold">عن الشركة</a>
+        <a href="#" class="hover:text-gold">الخصوصية</a>
+        <a href="index.html" class="hover:text-gold">EN</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/971504280362" class="fixed bottom-6 left-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-ink-950 shadow-xl shadow-black/40 hover:scale-105">
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 0 1 .066 11.86C.07 5.337 5.396.011 11.92.011a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.416c-.003 6.524-5.327 11.85-11.853 11.85a11.9 11.9 0 0 1-5.696-1.452L.057 24z"/></svg>
+  </a>
+
+  <script>
+    (function () {
+      var header = document.getElementById('site-header');
+      if (header) {
+        var toggle = function () {
+          if (window.scrollY > 24) header.classList.add('is-scrolled');
+          else header.classList.remove('is-scrolled');
+        };
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+      }
+      var btn = document.getElementById('menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var closeBtn = document.getElementById('menu-close');
+      var backdrop = document.getElementById('menu-backdrop');
+      if (!btn || !menu) return;
+      var open = function () { menu.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; };
+      var close = function () { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; };
+      btn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (backdrop) backdrop.addEventListener('click', close);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* Design tokens — cinematic dark with navy + gold (matches the approved preview) */
+@theme {
+  --color-ink-950: #0A1235;
+  --color-ink-900: #131B40;
+  --color-ink-800: #1C2554;
+  --color-ink-700: #26306B;
+
+  --color-ivory: #F5F1E8;
+  --color-ivory-dim: #D9D3C3;
+
+  --color-gold: #C9A961;
+  --color-gold-deep: #8B6F3F;
+
+  --color-mute: #6B6B73;
+
+  --font-display: var(--font-arsenal), serif;
+  --font-sans: var(--font-roboto-flex), system-ui, sans-serif;
+  --font-display-arabic: var(--font-el-messiri), serif;
+  --font-sans-arabic: var(--font-plex-arabic), system-ui, sans-serif;
+
+  --tracking-tightest: -0.04em;
+}
+
+@layer base {
+  html, body {
+    background: var(--color-ink-950);
+    color: var(--color-ivory);
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+  html[lang="ar"] body {
+    font-family: var(--font-sans-arabic);
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink-950);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+  html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 {
+    font-family: var(--font-display-arabic);
+  }
+}
+
+/* Utility helpers used across pages */
+.hairline {
+  border-color: rgba(245, 241, 232, 0.12);
+}
+.scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 18, 53, 0.2) 0%,
+    rgba(10, 18, 53, 0.45) 40%,
+    rgba(10, 18, 53, 0.95) 100%
+  );
+}
+.scrim-top {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 18, 53, 0.7) 0%,
+    rgba(10, 18, 53, 0) 30%
+  );
+  transition: opacity 0.35s ease;
+}
+.gold-rule {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold) 50%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* Scroll-triggered header lift (applied via JS in <Header />) */
+#site-header {
+  transition: background-color 0.35s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+#site-header.is-scrolled {
+  background-color: rgba(19, 27, 64, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(245, 241, 232, 0.12);
+  box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.6);
+}
+#site-header.is-scrolled .scrim-top {
+  opacity: 0;
+}
+
+/* Mobile drawer */
+#mobile-menu {
+  transition: opacity 0.25s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+#mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+#mobile-menu .drawer {
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html[dir="rtl"] #mobile-menu .drawer {
+  transform: translateX(-100%);
+}
+#mobile-menu.open .drawer {
+  transform: translateX(0);
+}
+
+/* Horizontal postcards (mobile community rail) */
+.scroll-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-padding-inline: 1.5rem;
+}
+.scroll-rail::-webkit-scrollbar {
+  display: none;
+}

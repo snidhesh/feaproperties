@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# environment — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+
+# probe output — may contain CRM data / PII / API responses
+probe-output/
+
+# build output (Phase 1+)
+dist/
+.next/
+out/
+*.tsbuildinfo
+
+# vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# design preview backup (original logo with navy bg)
+design-preview/logo_basic_original.png
