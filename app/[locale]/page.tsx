@@ -3,15 +3,8 @@ import Image from 'next/image';
 import {Link} from '@/i18n/routing';
 import {getFeaturedProperties, getFacets} from '@/lib/crm/service';
 import {PropertyCard} from '@/components/site/PropertyCard';
-
-const COMMUNITY_TILES = [
-  {name: 'Palm Jumeirah', kicker: 'Iconic', image: 'https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=900&q=80'},
-  {name: 'Downtown Dubai', kicker: 'Skyline', image: 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=80'},
-  {name: 'Dubai Marina', kicker: 'Waterfront', image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900&q=80'},
-  {name: 'Meydan', kicker: 'Garden estate', image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=900&q=80'},
-  {name: 'Emaar South', kicker: 'Emerging', image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80'},
-  {name: 'Dubai Islands', kicker: 'New shores', image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80'},
-];
+import {INSIGHT_POSTS} from '@/lib/content/insights';
+import {FEATURED_COMMUNITIES} from '@/lib/content/communities';
 
 export default async function HomePage({
   params,
@@ -42,8 +35,17 @@ export default async function HomePage({
         />
         <div className="scrim absolute inset-0" />
         <div className="relative z-10 mx-auto flex h-full max-w-[1500px] flex-col justify-end px-6 pb-24 lg:px-12 lg:pb-32">
-          <div className="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-gold">
-            <span className="h-px w-10 bg-gold" />
+          <div
+            className="mb-6 flex items-center gap-3 text-[13px] font-medium uppercase tracking-[0.35em] text-gold"
+            style={{
+              textShadow:
+                '0 2px 8px rgba(10,18,53,0.85), 0 0 24px rgba(10,18,53,0.5)',
+            }}
+          >
+            <span
+              className="h-px w-10 bg-gold"
+              style={{boxShadow: '0 0 8px rgba(201,169,97,0.5)'}}
+            />
             {t('kicker')}
           </div>
           <h1 className="max-w-5xl font-display text-[clamp(2.6rem,7.5vw,7.5rem)] leading-[0.95] tracking-[-0.04em] text-ivory">
@@ -136,13 +138,13 @@ export default async function HomePage({
           </div>
 
           <div className="scroll-rail mt-14 -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-3 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
-            {COMMUNITY_TILES.map((c) => {
+            {FEATURED_COMMUNITIES.map((c) => {
               const facet = facets.communities.find((f) => f.value === c.name);
               const count = facet?.count ?? 0;
               return (
                 <Link
-                  key={c.name}
-                  href="/properties"
+                  key={c.slug}
+                  href={`/communities/${c.slug}`}
                   className="group relative block aspect-[4/5] w-[78%] shrink-0 snap-center overflow-hidden rounded-sm sm:w-auto sm:shrink"
                 >
                   <Image
@@ -159,9 +161,11 @@ export default async function HomePage({
                       {c.kicker}
                     </div>
                     <div className="mt-2 font-display text-3xl text-ivory">{c.name}</div>
-                    <div className="mt-1 text-xs text-ivory/60">
-                      {t('communities.activeListings', {count})}
-                    </div>
+                    {count > 0 && (
+                      <div className="mt-1 text-xs text-ivory/60">
+                        {t('communities.activeListings', {count})}
+                      </div>
+                    )}
                   </div>
                 </Link>
               );
@@ -242,6 +246,60 @@ export default async function HomePage({
                 {t('founder.ctaRead')}
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEWS & EVENTS */}
+      <section id="insights" className="bg-ink-900 px-6 py-24 lg:px-12">
+        <div className="mx-auto max-w-[1500px]">
+          <div className="flex flex-col items-start justify-between gap-6 border-b hairline pb-10 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <div className="text-[11px] uppercase tracking-[0.4em] text-gold">
+                {t('insights.kicker')}
+              </div>
+              <h2 className="mt-3 font-display text-5xl leading-tight tracking-[-0.04em] text-ivory lg:text-6xl">
+                {t('insights.title')}
+              </h2>
+              <p className="mt-5 text-ivory/60">{t('insights.subtitle')}</p>
+            </div>
+            <Link
+              href="/insights"
+              className="hidden items-center gap-2 text-sm uppercase tracking-[0.2em] text-ivory/70 hover:text-gold md:flex"
+            >
+              {t('insights.viewAll')} <span aria-hidden>→</span>
+            </Link>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+            {INSIGHT_POSTS.map((post) => (
+              <article key={post.slug} className="group">
+                <Link href={`/insights/${post.slug}`} className="block">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-ink-800">
+                    <Image
+                      src={post.image}
+                      alt=""
+                      fill
+                      sizes="(max-width:768px) 100vw, 33vw"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                      unoptimized
+                    />
+                  </div>
+                  <div className="mt-5">
+                    <div className="text-[10px] uppercase tracking-[0.4em] text-gold">
+                      {t(`insights.posts.${post.key}.category`)} ·{' '}
+                      {t(`insights.posts.${post.key}.date`)}
+                    </div>
+                    <h3 className="mt-3 font-display text-2xl leading-snug text-ivory transition group-hover:text-gold">
+                      {t(`insights.posts.${post.key}.title`)}
+                    </h3>
+                    <p className="mt-3 text-sm text-ivory/55">
+                      {t(`insights.posts.${post.key}.excerpt`)}
+                    </p>
+                  </div>
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>

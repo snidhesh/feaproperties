@@ -72,6 +72,59 @@
       "ctaWhatsapp": "WhatsApp Feleg",
       "ctaCall": "Call",
       "ctaMessage": "Send a message"
+    },
+    "insights": {
+      "kicker": "News & Events",
+      "title": "Market notes",
+      "subtitle": "Updates on Dubai property regulations, buyer journeys, and tax — written for clients, not portals.",
+      "viewAll": "All insights",
+      "posts": {
+        "goldenVisa": {
+          "category": "Policy",
+          "date": "12 Jun 2026",
+          "title": "Golden Visa in 2026: a mature programme, settled rules",
+          "excerpt": "Four years on from the headline reform, the property route reads cleaner than ever. Here's where the qualifying rules sit in mid-2026.",
+          "lede": "Most of the noise around the Golden Visa has faded. By mid-2026 the programme is in its routine phase — predictable thresholds, a faster digital flow, and a tenancy and ownership ecosystem that has absorbed the reforms of the past four years.",
+          "section1Title": "The property threshold, still AED 2M",
+          "section1Body": "The investor route remains anchored at AED 2 million in property value. Mortgaged units count; combined holdings count; off-plan counts once payments cross the threshold under the developer's escrow plan. What's different from the early-2020s framing is operational rather than structural — fewer document checks, more pre-population from Dubai Land Department records, and a residency decision that now usually lands inside two weeks.",
+          "section2Title": "A digital-first application",
+          "section2Body": "UAE Pass is now the assumed entry point. Identity, address, property title and dependant records are pulled from federal and DLD sources in a single session, with biometric capture handled at any ICP service centre or — for repeat applicants — fully remote. The paper-heavy process of the early years has effectively disappeared.",
+          "section3Title": "Family scope, broadened in practice",
+          "section3Body": "Spouses, children of any age, and parents bundle in alongside the principal applicant without a salary test. Domestic staff and a small number of dependent in-laws now also process through the same flow in qualifying cases. The end-state for most family applications is that everyone shares the principal's 10-year term and renews on the same cycle.",
+          "section4Title": "Property first, visa second",
+          "section4Body": "The advice we give clients hasn't shifted: choose the property on its own merits. Community trajectory, building reputation, view orientation and resale liquidity all matter more across a decade than the route they took to a residency stamp. A 2026 Golden Visa application is a much smoother piece of process, but the long-run economics still come from the address, not the visa."
+        },
+        "buyerGuide": {
+          "category": "Guide",
+          "date": "8 Apr 2026",
+          "title": "Buying property in Dubai: the 2026 walkthrough",
+          "excerpt": "Form F is now digital, mortgage caps have moved, and transfers regularly close in a single afternoon. The actual 2026 process, step-by-step.",
+          "lede": "The mechanics of buying in Dubai have quietly matured. Most of the friction first-time buyers worried about five years ago has been engineered out. Here's the workflow we now walk every client through.",
+          "section1Title": "Start with a brief, not a shortlist",
+          "section1Body": "We still open with the conversation. Timeline, exit horizon, financing position, tax residency, lifestyle — every input narrows what's worth viewing. What's new in 2026 is that DLD's transaction-velocity data is now public per community, which lets us pressure-test a shortlist for liquidity before any viewings are booked.",
+          "section2Title": "Form F, signed in your browser",
+          "section2Body": "The Memorandum of Understanding — Form F — is now generated, witnessed and signed digitally through Dubai REST. The 10% deposit moves into the developer or broker escrow within the same flow. For ready properties, the developer No-Objection Certificate is requested electronically; for off-plan, the SPA still defines milestones but each tranche posts to the buyer's portal as it clears escrow.",
+          "section3Title": "Mortgage, transfer, fees",
+          "section3Body": "Foreign-buyer mortgage limits sit broadly at 70% LTV for a first property and tighten on subsequent or higher-value purchases — confirm the current band with your bank before placing an offer. DLD transfer fees remain 4% of value, with a small mortgage registration fee where applicable. The transfer appointment itself, at any DLD Trustee office, typically takes well under an hour; remote-track transfers close without anyone needing to be in the room.",
+          "section4Title": "Handover and what comes after",
+          "section4Body": "On ready property, we walk the snag list with our clients and witness the title-deed registration in person. For off-plan, the final escrow release only triggers once the Building Completion Certificate is on file. After move-in we stay engaged — for tenancy management, Ejari renewals, refinancing windows, and the resale or rebalancing conversations that always come later than buyers expect."
+        },
+        "corporateTax": {
+          "category": "Tax",
+          "date": "3 Feb 2026",
+          "title": "UAE corporate tax in 2026: three years in, the rules have settled",
+          "excerpt": "The Pillar Two top-up is now operational, the free-zone qualifying tests are clarified, and individual property owners remain outside the net. A clean status check.",
+          "lede": "Federal corporate tax has been live in the UAE since June 2023. Three tax years and several cabinet decisions later, the regime is past its experimental phase. The picture is now clear enough to make pre-purchase structuring decisions on.",
+          "section1Title": "The headline rate is holding",
+          "section1Body": "9% on taxable profit above AED 375,000 remains the baseline. Small business relief continues to apply below the published revenue threshold. Individuals holding property as a personal investment — both rental income and disposal gains — remain outside the corporate tax net altogether, provided the activity isn't structured as a business.",
+          "section2Title": "Free zone — the qualifying tests are clearer",
+          "section2Body": "Cabinet decisions through 2024 and 2025 have published the list of qualifying activities and tightened the de minimis test. A Qualifying Free Zone Person can still retain 0% on qualifying income, but the substance, beneficial ownership and intra-group transaction tests are now actively applied. Real estate held as an investment inside a free zone vehicle now needs to clear those tests deliberately, not by default.",
+          "section3Title": "Pillar Two is live for large groups",
+          "section3Body": "The Domestic Minimum Top-Up Tax is operational from the 2025 tax year for multinational groups in scope of the OECD Pillar Two framework. In-scope entities face an effective 15% minimum, with the top-up calculated jurisdiction by jurisdiction. The vast majority of private property investors and family offices sit outside this — but family offices owning UAE real estate through internationally-grouped vehicles should check their position.",
+          "section4Title": "Structure before purchase",
+          "section4Body": "The recurring lesson from the first three tax years is that structure matters before purchase, not after. Whether you hold in personal name, a UAE company, or a free zone vehicle drives both your annual outlook and the eventual disposal mechanics. We loop in trusted tax advisors at the brief stage so the entity is correctly chosen — not corrected later, at cost."
+        }
+      }
     }
   },
   "properties": {
@@ -187,6 +240,7 @@
       "lastName": "Last name",
       "email": "Email",
       "phone": "Phone (with country code)",
+      "phoneOptional": "Phone (optional, with country code)",
       "interestLabel": "I'm interested in",
       "interest": {
         "buying": "Buying a property",
@@ -196,13 +250,31 @@
         "management": "Property management",
         "general": "General enquiry"
       },
-      "messageLabel": "Your message",
+      "messageLabel": "Your message (optional)",
       "consent": "I consent to FEA Properties contacting me about my enquiry.",
       "privacyLink": "Privacy policy",
       "submit": "Send message",
+      "submitting": "Sending…",
       "sourceLabel": "Source: contact-page",
-      "success": "Thanks — Feleg will be in touch shortly.",
-      "errorGeneric": "Something went wrong. Please try again or message us on WhatsApp."
+      "errors": {
+        "firstNameMin": "Please share your first name.",
+        "firstNameMax": "That's a long first name — please shorten it.",
+        "lastNameMin": "Please share your last name.",
+        "lastNameMax": "That's a long last name — please shorten it.",
+        "emailInvalid": "Please enter a valid email address.",
+        "emailMax": "That email is too long.",
+        "phoneInvalid": "Please enter a valid phone with country code, e.g. +971 50 …",
+        "interestRequired": "Please pick what you're interested in.",
+        "messageMax": "Message is too long — please trim it under 2,000 characters.",
+        "consentRequired": "Please tick the consent box to continue.",
+        "generic": "Something went wrong. Please try again, or reach Feleg on WhatsApp."
+      },
+      "success": {
+        "title": "Thanks — we'll be in touch.",
+        "body": "Feleg or someone on the team will reply within the business day. If it's time-sensitive, WhatsApp is the fastest way to reach us.",
+        "ctaWhatsapp": "WhatsApp Feleg",
+        "ctaBack": "Back to home"
+      }
     },
     "channels": {
       "kicker": "Direct channels",
@@ -220,6 +292,23 @@
     "social": {
       "kicker": "Follow",
       "title": "Stay close."
+    }
+  },
+  "communities": {
+    "pageTitle": "Communities",
+    "kicker": "The neighbourhoods we know best",
+    "intro": "From beachfront enclaves to the city's tallest addresses — these are the communities where we place the majority of our clients. Each is a different brief; each rewards a different approach.",
+    "detail": {
+      "overview": "Overview",
+      "facts": "Quick facts",
+      "attractions": "Attractions",
+      "whyInvest": "Why invest here",
+      "relatedListings": "Active listings",
+      "relatedListingsNone": "No listings active in this community right now — much of our best inventory moves off-market. Speak with Feleg for what's coming next.",
+      "ctaTitle": "Looking in {community}?",
+      "ctaBody": "Tell us a little about your brief and we'll come back to you within the business day with options matched to it.",
+      "ctaButton": "Start a conversation",
+      "back": "All communities"
     }
   },
   "footer": {

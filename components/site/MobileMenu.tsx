@@ -81,6 +81,7 @@ export function MobileMenu() {
               {href: '/', label: t('home')},
               {href: '/properties', label: t('properties')},
               {href: '/about', label: t('about')},
+              {href: '/insights', label: t('insights')},
               {href: '/contact', label: t('contact')},
             ] as const).map((item) => (
               <Link

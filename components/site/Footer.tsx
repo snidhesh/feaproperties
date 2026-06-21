@@ -51,6 +51,7 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3 text-sm text-ivory/70">
               <li><Link href="/properties" className="hover:text-gold">{tn('properties')}</Link></li>
               <li><Link href="/about" className="hover:text-gold">{tn('about')}</Link></li>
+              <li><Link href="/insights" className="hover:text-gold">{tn('insights')}</Link></li>
               <li><Link href="/contact" className="hover:text-gold">{tn('contact')}</Link></li>
             </ul>
           </div>

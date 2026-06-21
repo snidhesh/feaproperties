@@ -31,6 +31,7 @@ export function SiteHeader() {
             <li><Link href="/" className="hover:text-gold">{t('home')}</Link></li>
             <li><Link href="/properties" className="hover:text-gold">{t('properties')}</Link></li>
             <li><Link href="/about" className="hover:text-gold">{t('about')}</Link></li>
+            <li><Link href="/insights" className="hover:text-gold">{t('insights')}</Link></li>
             <li><Link href="/contact" className="hover:text-gold">{t('contact')}</Link></li>
           </ul>
 

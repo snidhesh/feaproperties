@@ -11,6 +11,7 @@ function isValidLocale(value: string): value is (typeof routing.locales)[number]
 import {SiteHeader} from '@/components/site/Header';
 import {SiteFooter} from '@/components/site/Footer';
 import {WhatsAppFloat} from '@/components/site/WhatsAppFloat';
+import {SplashScreen} from '@/components/site/SplashScreen';
 import '../globals.css';
 
 const arsenal = Arsenal({
@@ -79,9 +80,19 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
+      // suppressHydrationWarning on <html> and <body> only — does NOT propagate
+      // to children. Covers attributes injected by browser extensions (password
+      // managers, dark-mode helpers) that touch the document root after SSR.
+      suppressHydrationWarning
       className={`${arsenal.variable} ${robotoFlex.variable} ${elMessiri.variable} ${plexArabic.variable}`}
     >
-      <body className="font-sans antialiased min-h-screen bg-ink-950 text-ivory">
+      <body
+        suppressHydrationWarning
+        className="font-sans antialiased min-h-screen bg-ink-950 text-ivory"
+      >
+        {/* Splash MUST render before anything else so its plain HTML paints
+            on first frame, ahead of React hydration. */}
+        <SplashScreen />
         <NextIntlClientProvider messages={messages}>
           <SiteHeader />
           <main id="main">{children}</main>

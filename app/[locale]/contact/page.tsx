@@ -1,5 +1,6 @@
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {Link} from '@/i18n/routing';
+import {ContactForm} from '@/components/site/ContactForm';
 
 export default async function ContactPage({
   params,
@@ -33,60 +34,7 @@ export default async function ContactPage({
       <section className="px-6 pb-24 lg:px-12">
         <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <form className="rounded-sm border hairline bg-ink-900 p-10">
-              <div className="text-[11px] uppercase tracking-[0.4em] text-gold">{t('form.kicker')}</div>
-              <h2 className="mt-2 font-display text-2xl text-ivory">{t('form.title')}</h2>
-              <div className="gold-rule mt-6" />
-
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Field label={t('form.firstName')} type="text" />
-                <Field label={t('form.lastName')} type="text" />
-                <Field label={t('form.email')} type="email" />
-                <Field label={t('form.phone')} type="tel" />
-
-                <label className="flex flex-col gap-2 sm:col-span-2">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-mute">
-                    {t('form.interestLabel')}
-                  </span>
-                  <select className="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none">
-                    <option>{t('form.interest.buying')}</option>
-                    <option>{t('form.interest.selling')}</option>
-                    <option>{t('form.interest.renting')}</option>
-                    <option>{t('form.interest.offplan')}</option>
-                    <option>{t('form.interest.management')}</option>
-                    <option>{t('form.interest.general')}</option>
-                  </select>
-                </label>
-
-                <label className="flex flex-col gap-2 sm:col-span-2">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-mute">
-                    {t('form.messageLabel')}
-                  </span>
-                  <textarea
-                    rows={5}
-                    className="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none"
-                  />
-                </label>
-
-                <label className="flex items-start gap-3 sm:col-span-2">
-                  <input type="checkbox" className="mt-1 h-4 w-4 rounded border hairline bg-ink-800 accent-[var(--color-gold)]" />
-                  <span className="text-xs text-ivory/60">
-                    {t('form.consent')}{' '}
-                    <a href="#" className="text-gold hover:underline">{t('form.privacyLink')}</a>
-                  </span>
-                </label>
-              </div>
-
-              <button
-                type="button"
-                className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-ink-950 hover:bg-ivory sm:w-auto"
-              >
-                {t('form.submit')}
-              </button>
-              <p className="mt-4 text-[10px] uppercase tracking-[0.25em] text-mute">
-                {t('form.sourceLabel')}
-              </p>
-            </form>
+            <ContactForm />
           </div>
 
           <aside className="lg:col-span-5">
@@ -118,18 +66,6 @@ export default async function ContactPage({
         </div>
       </section>
     </>
-  );
-}
-
-function Field({label, type}: {label: string; type: string}) {
-  return (
-    <label className="flex flex-col gap-2">
-      <span className="text-[10px] uppercase tracking-[0.3em] text-mute">{label}</span>
-      <input
-        type={type}
-        className="rounded-sm border hairline bg-ink-800 px-4 py-3 text-sm text-ivory focus:border-gold focus:outline-none"
-      />
-    </label>
   );
 }
 
