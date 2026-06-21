@@ -33,7 +33,7 @@
       "location": "الموقع",
       "category": "الفئة",
       "status": "الحالة",
-      "budget": "الميزانية (درهم)",
+      "budget": "الميزانية",
       "anyLocation": "أي مجتمع",
       "any": "الكل",
       "submit": "بحث"
@@ -85,7 +85,7 @@
       "category": "الفئة",
       "location": "الموقع",
       "beds": "غرف النوم",
-      "budget": "الميزانية (درهم)",
+      "budget": "الميزانية",
       "developer": "المطوّر",
       "clearAll": "مسح الكل"
     },

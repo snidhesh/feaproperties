@@ -3,6 +3,7 @@ import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
 import type {Property} from '@/lib/crm/types';
 import {LangFallbackTag} from './LangFallbackTag';
+import {DhSymbol} from './DhSymbol';
 
 export function PropertyCard({property}: {property: Property}) {
   const locale = useLocale();
@@ -11,7 +12,7 @@ export function PropertyCard({property}: {property: Property}) {
   const title =
     locale === 'ar' && property.title.ar ? property.title.ar : property.title.en;
   const showFallbackTag = locale === 'ar' && !!property.title.fallback;
-  const priceLabel = formatAED(property.price.amount, locale);
+  const priceLabel = formatAmount(property.price.amount, locale);
 
   return (
     <article className="group">
@@ -57,7 +58,10 @@ export function PropertyCard({property}: {property: Property}) {
             <div className="text-[10px] uppercase tracking-[0.3em] text-mute">
               {property.offering === 'rent-yearly' ? '/ year' : t('from')}
             </div>
-            <div className="font-display text-xl text-gold">{priceLabel}</div>
+            <div className="flex items-baseline justify-end gap-1.5 font-display text-xl text-gold">
+              <DhSymbol className="text-gold" />
+              <span>{priceLabel}</span>
+            </div>
           </div>
         </div>
       </Link>
@@ -65,11 +69,8 @@ export function PropertyCard({property}: {property: Property}) {
   );
 }
 
-function formatAED(amount: number, locale: string): string {
-  const fmt = new Intl.NumberFormat(locale === 'ar' ? 'ar-AE' : 'en-AE', {
-    style: 'currency',
-    currency: 'AED',
+function formatAmount(amount: number, locale: string): string {
+  return new Intl.NumberFormat(locale === 'ar' ? 'ar-AE' : 'en-AE', {
     maximumFractionDigits: 0,
-  });
-  return fmt.format(amount);
+  }).format(amount);
 }

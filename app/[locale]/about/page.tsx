@@ -14,15 +14,14 @@ export default async function AboutPage({
 
   return (
     <>
-      <section className="relative grid min-h-[80vh] grid-cols-1 lg:grid-cols-12">
-        <div className="relative lg:col-span-7">
+      <section className="relative grid min-h-[80vh] grid-cols-1 pt-24 lg:grid-cols-12 lg:pt-32">
+        <div className="relative min-h-[60vh] lg:col-span-7 lg:min-h-0">
           <Image
             src="/Feleg-Abenker.jpg"
             alt="Feleg Abenker"
             fill
             sizes="(max-width:1024px) 100vw, 60vw"
-            className="object-cover"
-            style={{objectPosition: '50% 20%'}}
+            className="object-cover object-top"
             priority
           />
           <div className="scrim absolute inset-0" />

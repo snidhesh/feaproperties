@@ -21,8 +21,16 @@ function getMemoizedListings(): Promise<Property[]> {
     memo = fetchAllListings()
       .then(adaptListings)
       .catch((err) => {
-        memo = null; // allow retry on error
-        throw err;
+        // Degrade gracefully so prerender + ISR don't take the whole site down
+        // when CRM is unreachable, credentials are missing, or the schema is
+        // off. The error is logged loudly so it's visible in build logs and
+        // Sentry (when wired). Pages will render empty states.
+        console.error(
+          '[crm] getAllProperties failed — returning [] for this render:',
+          (err as Error)?.message ?? err,
+        );
+        memo = null; // allow retry on next call
+        return [] as Property[];
       });
   }
   return memo;

@@ -5,6 +5,7 @@ import {Link} from '@/i18n/routing';
 import {getProperty, getAllProperties} from '@/lib/crm/service';
 import {LangFallbackTag} from '@/components/site/LangFallbackTag';
 import {InquirySidebarForm} from '@/components/site/InquirySidebarForm';
+import {DhSymbol} from '@/components/site/DhSymbol';
 
 export const revalidate = 600;
 
@@ -50,8 +51,6 @@ export default async function PropertyDetail({
   const titleFallback = locale === 'ar' && !!p.title.fallback;
   const descriptionFallback = locale === 'ar' && !!p.description.fallback;
   const priceLabel = new Intl.NumberFormat(locale === 'ar' ? 'ar-AE' : 'en-AE', {
-    style: 'currency',
-    currency: 'AED',
     maximumFractionDigits: 0,
   }).format(p.price.amount);
 
@@ -189,7 +188,10 @@ export default async function PropertyDetail({
                 <div className="text-[10px] uppercase tracking-[0.3em] text-mute">
                   {t('sidebar.startingFrom')}
                 </div>
-                <div className="mt-1 font-display text-4xl text-ivory">{priceLabel}</div>
+                <div className="mt-1 flex items-baseline gap-2 font-display text-4xl text-ivory">
+                  <DhSymbol className="text-gold" />
+                  <span>{priceLabel}</span>
+                </div>
                 <div className="mt-1 text-xs text-mute">
                   Ref: {p.reference}
                 </div>

@@ -33,7 +33,7 @@
       "location": "Location",
       "category": "Category",
       "status": "Status",
-      "budget": "Budget (AED)",
+      "budget": "Budget",
       "anyLocation": "Any community",
       "any": "Any",
       "submit": "Search"
@@ -85,7 +85,7 @@
       "category": "Category",
       "location": "Location",
       "beds": "Beds",
-      "budget": "Budget (AED)",
+      "budget": "Budget",
       "developer": "Developer",
       "clearAll": "Clear all"
     },
